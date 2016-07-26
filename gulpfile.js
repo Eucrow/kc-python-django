@@ -1,10 +1,24 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync').create();
+// importamos gulp
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var notify = require('gulp-notify');
+var browserSync = require('browser-sync').create();//hacemos ya una instacia del browser-sync
+var browserify = require('browserify');
+var tap = require('gulp-tap');
+var buffer = require('gulp-buffer');
+var uglify = require('gulp-uglify');
+var sourcemaps = require('gulp-sourcemaps');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
+var cssnano = require('cssnano');
+var imagemin = require('gulp-imagemin');
+var spritesmith = require('gulp.spritesmith')
 
+//variables d epatrones de archivos
+var jsFiles =["src/js/*.js/", "src/js/**/*.js"];
 
-//definimos tarea por defecto
-gulp.task("default", function(){
-
+// definimos tarea por defecto
+gulp.task("default", ["concat-js", "compile-sass"], function(){
     //iniciamos browserSync
     browserSync.init({
         server: "./",//levanta el servidor web en la carpeta actual
@@ -12,7 +26,50 @@ gulp.task("default", function(){
                                     //sparrest que está en el puerto 8000
         //browser: "chrome"
     });
+    // observa cambios en archivos SASS y ejecuta la tarea de compilación
+    gulp.watch("src/scss/*.scss", ["compile-sass"]);
 
     // observa cambio en archivos HTML y recarga el navegador
     gulp.watch("*.html").on("change", browserSync.reload);
+
+    //observar cambios en archivos js
+    gulp.watch(jsFiles, ["concat-js"]);
+});
+
+// definimos la tarea para compilar SASS
+gulp.task("compile-sass", function(){
+    gulp.src("./src/scss/style.scss") // cargamos le archivo
+    .pipe(sourcemaps.init()) // comenzamos la captura de sourcemaps
+    .pipe(sass().on('error', sass.logError)) // compilamos el archivo SASS
+                                            //y gestionamos los errores
+    .pipe(postcss([
+        autoprefixer(), //autoprefija automáticamente el css
+        cssnano() //minifica el css
+     ]))
+    .pipe(sourcemaps.write('./')) // escribimos los sourcemaps
+    .pipe(gulp.dest("./dist/css/")) // guardamos el archivo en dist/css
+    .pipe(notify({
+        title: "SASS compiled",
+        message: "ok"
+    }))
+    .pipe(browserSync.stream());
+});
+
+// definimos la tarea para concatenar JS
+gulp.task("concat-js", function(){
+    gulp.src("src/js/app.js")
+    //.pipe(concat("app.js"))
+    .pipe(sourcemaps.init()) // comenzamos la captura de sourcemaps
+    .pipe(tap(function(file){ // tap nos permite ejecutar un código por cada fichero seleccionado en el paso anterior
+        file.contents = browserify(file.path).bundle(); //pasamoso el archivo por browserify para importar los require
+    }))
+    .pipe(buffer())//convierte cada archivo en un stream ¿¿¿¿que qué????
+    .pipe(uglify()) // minifica el javascript
+    .pipe(sourcemaps.write('./')) // escribimos los sourcemaps
+    .pipe(gulp.dest("./dist/js/"))
+    .pipe(notify({
+        title: "JS concatenated",
+        message: "ok"
+    }))
+    .pipe(browserSync.stream());
 });
