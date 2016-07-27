@@ -1,0 +1,8 @@
+//esto no debería ir aqúi:
+.likes{
+    display: inline-block;
+}
+
+.icon-hearth {
+  @include sprite($icon-heart);
+}

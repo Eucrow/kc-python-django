@@ -1,2 +1,2 @@
-h1{color:red}
+body,footer,header,ul{padding:0;margin:0 auto}*{box-sizing:border-box}h1{color:red}.likes{display:inline-block}.icon-hearth{background-image:url(../img/sprite.png);background-position:-20px 0;width:20px;height:20px}
 /*# sourceMappingURL=style.css.map */
