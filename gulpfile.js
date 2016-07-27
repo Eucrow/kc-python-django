@@ -16,9 +16,10 @@ var spritesmith = require('gulp.spritesmith')
 
 //variables d epatrones de archivos
 var jsFiles =["src/js/*.js/", "src/js/**/*.js"];
+var spriteDir = ["src/img/sprites/*.png", "src/img/sprites/*.jpg", "src/img/sprites/*.gif", "src/img/sprites/*.svg"];
 
 // definimos tarea por defecto
-gulp.task("default", ["concat-js", "compile-sass"], function(){
+gulp.task("default", ["concat-js", "compile-sass", "spritesheet"], function(){
     //iniciamos browserSync
     browserSync.init({
         server: "./",//levanta el servidor web en la carpeta actual
@@ -34,11 +35,14 @@ gulp.task("default", ["concat-js", "compile-sass"], function(){
 
     //observar cambios en archivos js
     gulp.watch(jsFiles, ["concat-js"]);
+
+    //observar cambios en los assets para optimzarlos
+    gulp.watch(spriteDir, ["spritesheet"]);
 });
 
 // definimos la tarea para compilar SASS
 gulp.task("compile-sass", function(){
-    gulp.src("./src/scss/style.scss") // cargamos le archivo
+    gulp.src("./src/scss/style.scss") // cargamos el archivo
     .pipe(sourcemaps.init()) // comenzamos la captura de sourcemaps
     .pipe(sass().on('error', sass.logError)) // compilamos el archivo SASS
                                             //y gestionamos los errores
@@ -72,4 +76,17 @@ gulp.task("concat-js", function(){
         message: "ok"
     }))
     .pipe(browserSync.stream());
+});
+
+// optimizacion de assets assest: crea un spritesheet con todos los assets
+gulp.task("spritesheet", function(){
+   var spriteData = gulp.src('./src/img/sprites/*')
+   .pipe(spritesmith({
+       imgName: 'sprite.png',
+       cssName: '_sprite.scss',
+       imgPath:'../img/sprite.png'
+   }));
+
+   spriteData.img.pipe(buffer()).pipe(imagemin()).pipe(gulp.dest('./dist/img/'));
+   spriteData.css.pipe(gulp.dest('./src/scss/'));
 });
