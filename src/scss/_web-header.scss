@@ -1,0 +1,11 @@
+header{
+    background-color: $color-blue;
+    h1{
+        float: left;
+        color: $color-green;
+    }
+    .subtitle{
+        font-family: $subtitle-font-family;
+        font-size: $font-size-h5;
+    }
+}
