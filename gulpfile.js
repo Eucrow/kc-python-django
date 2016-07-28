@@ -48,7 +48,7 @@ gulp.task("compile-sass", function(){
                                             //y gestionamos los errores
     .pipe(postcss([
         autoprefixer(), //autoprefija automáticamente el css
-        cssnano() //minifica el css
+        //cssnano() //minifica el css
      ]))
     .pipe(sourcemaps.write('./')) // escribimos los sourcemaps
     .pipe(gulp.dest("./dist/css/")) // guardamos el archivo en dist/css

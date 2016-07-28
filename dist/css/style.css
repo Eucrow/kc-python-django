@@ -1,2 +1,92 @@
-body,footer,header,ul{padding:0;margin:0 auto}*{box-sizing:border-box}h1{color:red}.likes{display:inline-block}.icon-hearth{background-image:url(../img/sprite.png);background-position:-20px 0;width:20px;height:20px}
+@charset "UTF-8";
+/*RESET*/
+header, body, footer, ul {
+  padding: 0px;
+  margin: 0px auto; }
+
+* {
+  /*bxz*/
+  /*el tamaño de la caja incluye margin y border*/
+  box-sizing: border-box; }
+
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+h1 {
+  font-size: 29px; }
+
+h2 {
+  font-size: 26px; }
+
+h3 {
+  font-size: 23px; }
+
+h4 {
+  font-size: 20px; }
+
+h5 {
+  font-size: 17px; }
+
+h6 {
+  font-size: 14px; }
+
+header {
+  background-color: #7EBFD9; }
+  header h1 {
+    color: #4F5902; }
+  header .subtitle {
+    font-family: "Aref Ruqaa", serif;
+    font-size: 20px; }
+
+.likes {
+  display: inline-block; }
+
+.icon-hearth {
+  background-image: url(../img/sprite.png);
+  background-position: -20px 0px;
+  width: 20px;
+  height: 20px; }
+
 /*# sourceMappingURL=style.css.map */
