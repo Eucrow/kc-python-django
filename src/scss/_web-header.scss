@@ -1,11 +1,97 @@
 header{
+    width:100%;
     background-color: $color-blue;
+    height:50px;
+    position: fixed;
+    // line-height:50px;
+
     h1{
-        float: left;
-        color: $color-green;
+        padding-left: 5px;
+        color: $color-dark-green;
+        font-family: $secondary-font-family;
     }
-    .subtitle{
-        font-family: $subtitle-font-family;
-        font-size: $font-size-h5;
+}
+
+
+.hamburger{
+    background:none;
+    position:absolute;
+    top:0;
+    right:0;
+    line-height:45px;
+    padding:0px 15px 0px 15px;
+    color:$color-white;
+    border:0;
+    font-size:1.4em;
+    font-weight:bold;
+    cursor:pointer;
+    outline:none;
+    z-index:10000000000000;
+}
+.cross{
+    background:none;
+    position:absolute;
+    top:0px;
+    right:0;
+    padding:0px 15px 0px 15px;
+    color:$color-white;
+    border:0;
+    font-size:3em;
+    line-height:65px;
+    font-weight:bold;
+    cursor:pointer;
+    outline:none;
+    z-index:10000000000000;
+}
+
+.menu{
+    z-index:1000000;
+    font-weight:bold;
+    color: $color-white;
+    background:$color-blue;
+    position:absolute;
+    top: 50px;
+    right: 0px;
+    text-align:right;
+    border-left:$color-blue 2px solid;
+    ul {
+        list-style-type: none;
+        list-style-image: none;
+        font-family: $secondary-font-family;
     }
+    li {
+        display: block;
+        padding:5px 10px 5px 10px;
+        border-bottom:$color-blue 1px solid;
+    }
+    li:hover{
+        display: block;
+        color:$color-green;
+        background:$color-white;
+        padding:5px 10px 5px 10px;
+    }
+    li.menu-inverse:hover{
+        background: $color-blue;
+    }
+    ul li a {
+        text-decoration:none;
+        margin: 0px;
+        color:$color-white;
+    }
+    ul li a:hover {
+        color: $color-white;
+        text-decoration:none;
+    }
+    a{
+        text-decoration:none;
+        color:$color-white;
+    }
+    a:hover{
+        text-decoration:none;
+        color:$color-white;
+    }
+}
+
+.icon-search {
+  @include sprite($icon-search);
 }
