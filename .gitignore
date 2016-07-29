@@ -1,2 +1,5 @@
 #nodejs files
 /node_modules
+
+#sparrest
+server.py
