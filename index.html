@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa|Prompt" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/style.css" media="screen" title="no title" charset="utf-8">
 </head>
-<body>
+<body class="container">
     <header>
-        <h1>cuartium</h1>
+        <h1 class="header-title">cuartium</h1>
     <button class="hamburger">&#9776;</button>
     <button class="cross">&#735;</button>
     <div class="menu">
@@ -32,96 +32,91 @@
     </div>
   </header>
 
-    <section>
+    <section class="container-section">
+        <a name="begin"></a>
         <!-- emmet: -->
-        <!-- (article>div.title{Article $}+img.article-picture[alt="Picture $"]+div.introduction>p>lorem15^^div.owner>div.name+img.author-image[alt="autor"]+div.fecha^div.social>div.likes.icon-hearth+div.comments)*5 -->
-<article>
-    <div class="title">Article 1</div>
-    <img src="" alt="Picture 1" class="article-picture">
-    <div class="introduction">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto quisquam doloremque magni praesentium accusamus natus?</p>
-    </div>
-    <div class="owner">
-        <div class="name"></div>
-        <img src="" alt="autor" class="author-image">
-        <div class="fecha"></div>
-    </div>
-    <div class="social">
-        <div class="likes icon-hearth"></div>
-        <div class="comments"></div>
-    </div>
-</article>
-<article>
-    <div class="title">Article 2</div>
-    <img src="" alt="Picture 2" class="article-picture">
-    <div class="introduction">
-        <p>Nobis corporis obcaecati provident sed, consequuntur quam harum sapiente. Repellat distinctio provident, ratione ipsum ea!</p>
-    </div>
-    <div class="owner">
-        <div class="name"></div>
-        <img src="" alt="autor" class="author-image">
-        <div class="fecha"></div>
-    </div>
-    <div class="social">
-        <div class="likes icon-hearth"></div>
-        <div class="comments"></div>
-    </div>
-</article>
-<article>
-    <div class="title">Article 3</div>
-    <img src="" alt="Picture 3" class="article-picture">
-    <div class="introduction">
-        <p>Impedit quod eius dolorem aliquam vitae ducimus qui at nam, corporis perferendis harum nobis est.</p>
-    </div>
-    <div class="owner">
-        <div class="name"></div>
-        <img src="" alt="autor" class="author-image">
-        <div class="fecha"></div>
-    </div>
-    <div class="social">
-        <div class="likes icon-hearth"></div>
-        <div class="comments"></div>
-    </div>
-</article>
-<article>
-    <div class="title">Article 4</div>
-    <img src="" alt="Picture 4" class="article-picture">
-    <div class="introduction">
-        <p>Totam ipsam ipsum numquam sequi possimus tempora, dolor. Dolore dolores, voluptate laboriosam non commodi temporibus.</p>
-    </div>
-    <div class="owner">
-        <div class="name"></div>
-        <img src="" alt="autor" class="author-image">
-        <div class="fecha"></div>
-    </div>
-    <div class="social">
-        <div class="likes icon-hearth"></div>
-        <div class="comments"></div>
-    </div>
-</article>
-<article>
-    <div class="title">Article 5</div>
-    <img src="" alt="Picture 5" class="article-picture">
-    <div class="introduction">
-        <p>Quaerat fuga, obcaecati, fugiat, ipsum ut aliquid labore nesciunt iusto cum laudantium maxime earum laborum!</p>
-    </div>
-    <div class="owner">
-        <div class="name"></div>
-        <img src="" alt="autor" class="author-image">
-        <div class="fecha"></div>
-    </div>
-    <div class="social">
-        <div class="likes icon-hearth"></div>
-        <div class="comments"></div>
-    </div>
-</article>
+        <!--(article>div.article-title>lorem6^img.article-picture[src="src/img/uploads/4-Tomillo_en_flor.jpg" alt="Picture $"]+div.article-introduction>p>lorem15^^div.article-owner>div.article-name+img.article-author-image[alt="autor"]+div.article-fecha^div.article-social>div.likes.icon-hearth+div.article-comments)*5-->
+        <!-- (article>div.article-title>lorem6^img.article-picture[src="src/img/uploads/4-Tomillo_en_flor.jpg" alt="Picture $"]+div.article-introduction>p>lorem15^^div.article-owner>div.article-name{lhiluh}+img.article-author-image[alt="autor"]{khlh}+div.article-fecha{fdsfd}^div.article-social>div.likes.icon-hearth+div.article-comments)*5 -->
+        <!-- (article>div.article-title>lorem6^img.article-picture[src="src/img/uploads/4-Tomillo_en_flor.jpg" alt="Picture $"]+div.article-introduction>p>lorem15^^div.article-owner>div.article-name{lhiluh}+img.article-author-image.icon-placeholder[alt="autor"]{khlh}+div.article-fecha{fdsfd}^div.article-social>div.likes.icon-hearth+div.article-comments)*5-->
+
+        <article>
+            <div class="article-title">Lorem ipsum dolor sit amet, consectetur.</div>
+            <img class="article-picture" src="src/img/uploads/4-Tomillo_en_flor.jpg" alt="Picture 1">
+            <div class="article-introduction">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quaerat, consectetur aliquam perspiciatis fugiat quia.</p>
+            </div>
+            <div class="article-social clearfix">
+                <div class="article-social-likes icon-hearth"></div>
+                <div class="article-social-avatar icon-placeholder clearfix"></div>
+                <div class="article-social-name">Marco A. Amez</div>
+                <div class="article-social-fecha">Hace 5 días</div>
+                <div class="article-social-comments">25 comentarios</div>
+            </div>
+        </article>
+        <article>
+            <div class="article-title">Lorem ipsum dolor sit amet, consectetur.</div>
+            <img class="article-picture" src="src/img/uploads/4-Tomillo_en_flor.jpg" alt="Picture 1">
+            <div class="article-introduction">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quaerat, consectetur aliquam perspiciatis fugiat quia.</p>
+            </div>
+            <div class="article-social clearfix">
+                <div class="article-social-likes icon-hearth"></div>
+                <div class="article-social-avatar icon-placeholder clearfix"></div>
+                <div class="article-social-name">Marco A. Amez</div>
+                <div class="article-social-fecha">Hace 5 días</div>
+                <div class="article-social-comments">25 comentarios</div>
+            </div>
+        </article>
+        <article>
+            <div class="article-title">Lorem ipsum dolor sit amet, consectetur.</div>
+            <img class="article-picture" src="src/img/uploads/4-Tomillo_en_flor.jpg" alt="Picture 1">
+            <div class="article-introduction">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quaerat, consectetur aliquam perspiciatis fugiat quia.</p>
+            </div>
+            <div class="article-social clearfix">
+                <div class="article-social-likes icon-hearth"></div>
+                <div class="article-social-avatar icon-placeholder clearfix"></div>
+                <div class="article-social-name">Marco A. Amez</div>
+                <div class="article-social-fecha">Hace 5 días</div>
+                <div class="article-social-comments">25 comentarios</div>
+            </div>
+        </article>
+        <article>
+            <div class="article-title">Lorem ipsum dolor sit amet, consectetur.</div>
+            <img class="article-picture" src="src/img/uploads/4-Tomillo_en_flor.jpg" alt="Picture 1">
+            <div class="article-introduction">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quaerat, consectetur aliquam perspiciatis fugiat quia.</p>
+            </div>
+            <div class="article-social clearfix">
+                <div class="article-social-likes icon-hearth"></div>
+                <div class="article-social-avatar icon-placeholder clearfix"></div>
+                <div class="article-social-name">Marco A. Amez</div>
+                <div class="article-social-fecha">Hace 5 días</div>
+                <div class="article-social-comments">25 comentarios</div>
+            </div>
+        </article>
+        <article>
+            <div class="article-title">Lorem ipsum dolor sit amet, consectetur.</div>
+            <img class="article-picture" src="src/img/uploads/4-Tomillo_en_flor.jpg" alt="Picture 1">
+            <div class="article-introduction">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quaerat, consectetur aliquam perspiciatis fugiat quia.</p>
+            </div>
+            <div class="article-social clearfix">
+                <div class="article-social-likes icon-hearth"></div>
+                <div class="article-social-avatar icon-placeholder clearfix"></div>
+                <div class="article-social-name">Marco A. Amez</div>
+                <div class="article-social-fecha">Hace 5 días</div>
+                <div class="article-social-comments">25 comentarios</div>
+            </div>
+        </article>
 
 
     </section>
     <footer>
-        <p class="title">cuartium</p>
-        <div class="icon icon-up"></div>
+        <p class="footer-title">cuartium</p>
+        <a href="#begin"><div class="icon icon-up"></div></a>
         <p class="copyright">Marco A. Amez</p>
+        <!-- <div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
 
     </footer>
 

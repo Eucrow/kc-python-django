@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*RESET*/
-header, body, footer, ul, h1 {
+header, body, footer, ul, h1, p {
   padding: 0px;
   margin: 0px auto; }
 
@@ -11,6 +11,19 @@ header, body, footer, ul, h1 {
   /*bxz*/
   /*el tamaño de la caja incluye margin y border*/
   box-sizing: border-box; }
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.container {
+  width: 100vw; }
+
+.container-section {
+  padding-top: 50px; }
 
 /*
 SCSS variables are information about icon's compiled state, stored under its original file name
@@ -75,13 +88,55 @@ h5 {
 h6 {
   font-size: 14px; }
 
+body {
+  font-family: "Prompt", sans-serif;
+  font-size: 14px;
+  line-height: 1em; }
+
+article {
+  width: 95vw;
+  margin: 10px auto;
+  padding: 10px 10px;
+  box-shadow: 0 14px 10px -15px #7EBFD9;
+  font-size: 12px; }
+  article .article-title {
+    font-family: "Aref Ruqaa", serif;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 1em;
+    padding-bottom: 5px; }
+  article .article-picture {
+    max-width: 100%; }
+  article .article-social {
+    width: 100%;
+    padding-top: 8px; }
+    article .article-social .article-social-avatar {
+      float: left;
+      width: 50px;
+      height: 49px;
+      margin-right: 5px; }
+    article .article-social .article-social-name {
+      display: block; }
+    article .article-social .article-social-fecha {
+      display: block; }
+    article .article-social .article-social-likes {
+      float: right; }
+    article .article-social .article-social-comments {
+      float: left; }
+
+.icon-placeholder {
+  background-image: url(../img/sprite.png);
+  background-position: 0px 0px;
+  width: 50px;
+  height: 49px; }
+
 header {
   width: 100%;
   background-color: #7EBFD9;
   height: 50px;
   position: fixed; }
-  header h1 {
-    padding-left: 5px;
+  header .header-title {
+    padding: 20px 0 0 5px;
     color: #1E2601;
     font-family: "Aref Ruqaa", serif; }
 
@@ -156,13 +211,13 @@ header {
 
 .icon-search {
   background-image: url(../img/sprite.png);
-  background-position: 0px -20px;
+  background-position: 0px -49px;
   width: 20px;
   height: 20px; }
 
 .icon-hearth {
   background-image: url(../img/sprite.png);
-  background-position: -20px 0px;
+  background-position: -50px -20px;
   width: 20px;
   height: 20px; }
 
@@ -170,13 +225,13 @@ footer {
   width: 100%;
   background-color: #7EBFD9;
   vertical-align: bottom; }
-  footer .title {
+  footer .footer-title {
+    font-family: "Aref Ruqaa", serif;
     font-size: 29px;
     font-weight: bold;
-    padding-left: 5px;
     color: #1E2601;
-    font-family: "Aref Ruqaa", serif;
-    display: inline; }
+    display: inline-block;
+    padding: 12px 0 15px 5px; }
   footer .copyright {
     width: 100%;
     text-align: center;
@@ -184,10 +239,10 @@ footer {
 
 .icon-up {
   background-image: url(../img/sprite.png);
-  background-position: -20px -20px;
+  background-position: -20px -49px;
   width: 20px;
   height: 20px;
   float: right;
-  margin: 15px 10px 0 0; }
+  margin: 12px 10px 0 0; }
 
 /*# sourceMappingURL=style.css.map */

@@ -17,6 +17,7 @@ var spritesmith = require('gulp.spritesmith')
 //variables d epatrones de archivos
 var jsFiles =["src/js/*.js/", "src/js/**/*.js"];
 var spriteDir = ["src/img/sprites/*.png", "src/img/sprites/*.jpg", "src/img/sprites/*.gif", "src/img/sprites/*.svg"];
+var uploadedImages = ["src/img/uploads/*.jpg"];
 
 // definimos tarea por defecto
 gulp.task("default", ["concat-js", "compile-sass", "spritesheet"], function(){
@@ -89,4 +90,13 @@ gulp.task("spritesheet", function(){
 
    spriteData.img.pipe(buffer()).pipe(imagemin()).pipe(gulp.dest('./dist/img/'));
    spriteData.css.pipe(gulp.dest('./src/scss/'));
+});
+
+// optimización de imágenes de usuario
+// esto en teoría lo debería hacer el backend, no es lo mejor en un sistema de producción
+// lo hacemos así para ver como se utiliza
+gulp.task("uploaded-images-optimization", function(){
+   gulp.src(uploadedImages)
+   .pipe(imagemin())
+   .pipe(gulp.dest('./uploads/'));
 });
