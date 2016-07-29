@@ -1,0 +1,53 @@
+article{
+    width: 95vw;
+    margin: 10px auto;
+    padding: 10px 10px;
+    box-shadow: 0 14px 10px -15px $color-blue;
+    font-size: $font-size-small;
+
+    .article-title{
+        font-family: $secondary-font-family;
+        font-size: $font-size-h5;
+        font-weight: 900;
+        line-height: 1em;
+        padding-bottom: 5px;
+        a{
+            text-decoration: none;
+            color: $color-dark-green;
+            &:hover{
+                color: $color-blue;
+            }
+        }
+    }
+
+    .article-picture{
+        max-width: 100%;
+    }
+
+    .article-social{
+        width: 100%;
+        padding-top: 8px;
+        .article-social-avatar{
+            float:left;
+            width: $icon-placeholder-width;
+            height: $icon-placeholder-height;
+            margin-right: 5px;
+        }
+        .article-social-name{
+            display: block;
+        }
+        .article-social-fecha{
+            display: block;
+        }
+        .article-social-likes{
+            float: right;
+        }
+        .article-social-comments{
+            float: left;
+        }
+    }
+}
+
+.icon-placeholder {
+  @include sprite($icon-placeholder);
+}
