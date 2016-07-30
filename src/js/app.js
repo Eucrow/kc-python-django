@@ -1,3 +1,3 @@
 require("./hamburguer");
 require("./form");
-require("./list-init");
+require("./comments-init");

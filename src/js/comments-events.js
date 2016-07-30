@@ -1,6 +1,7 @@
 var $ = require ('jquery');
 
-var commentsList = require('./comments-list.js');
+var commentsList    = require('./comments-list.js');
+var apiClient       = require('./api-client.js');
 
 module.exports = {
     load: function(){
@@ -10,9 +11,26 @@ module.exports = {
                     if (!$.trim($(".list-comments").html())){ //$.trim elimina caracteres en blanco y saltos de línea
                         // cargamos la lista de comentarios
                         commentsList.load();
+                        // y mostramos el formulario que se mantenía oculto
+                        $(".new-comment-form").css("display", "block");
                     }
                 }
             });
         });
+    },
+    count: function(){
+        apiClient.list(function(response){
+            console.log(response.length);
+            if (response == 0){
+                var html = "No comments yet";
+            } else {
+                var html = response.length + " comments:";
+            }
+
+            $(".number-of-comments").append(html);
+        },
+        function(response){
+            console.error("ERROR", response);
+        })
     }
 }

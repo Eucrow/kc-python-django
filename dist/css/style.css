@@ -220,6 +220,9 @@ article {
   width: 50px;
   height: 49px; }
 
+.new-comment-form {
+  display: none; }
+
 .icon-hearth {
   background-image: url(../img/sprite.png);
   background-position: -50px -20px;

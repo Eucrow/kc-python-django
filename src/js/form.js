@@ -46,12 +46,8 @@ $('.new-comment-form').on("submit", function(){
         email: $("#email").val(),
         comment: $("#comment").val()
     };
-    console.log(commentToAdd);
-    console.log("agrupa el comentario");
 
     setLoading(); // desabilito el formulario
-    console.log("despues de desabilitar el formulario");
-
 
     apiClient.save(
         commentToAdd,
