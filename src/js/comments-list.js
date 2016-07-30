@@ -4,7 +4,7 @@ var apiClient = require('./api-client.js');
 module.exports = {
     load: function(){
         apiClient.list(function(response){
-            $(".songs-list").html(''); //vaciamos el html
+            $(".list-comments").html(''); //vaciamos el html
             for (var i in response) {
                 var commentToGet = response[i];
 

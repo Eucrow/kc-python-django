@@ -6,14 +6,11 @@ module.exports = {
         // cuando se guarde correctamente la canción y 3 una fucnión que se va a
         // ejecutar cuando algo falle al guardar la canción
 
-
         var formData = new FormData();
         formData.append("name", commentToAdd.name);
         formData.append("surname", commentToAdd.surname);
         formData.append("email", commentToAdd.email);
         formData.append("comment", commentToAdd.comment);
-
-        return false; // == e.preventDefault(); en jquery
 
         $.ajax({
             url:"/api/comments/", //url donde vamos a hacer la peticion (donde va a guardar los datos)

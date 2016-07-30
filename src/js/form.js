@@ -1,5 +1,6 @@
 var $ = require ('jquery');
-var apiClient = require('./api-client.js');
+var apiClient       = require('./api-client.js');
+var commentsList    = require('./comments-list.js');
 
 
 var newCommentFormButton = $('.new-comment-form button')
@@ -46,19 +47,20 @@ $('.new-comment-form').on("submit", function(){
         comment: $("#comment").val()
     };
     console.log(commentToAdd);
+    console.log("agrupa el comentario");
 
     setLoading(); // desabilito el formulario
+    console.log("despues de desabilitar el formulario");
 
 
     apiClient.save(
         commentToAdd,
         function(response) { //función que se ejecuta cuando la petición sea válida
-                console.log($("form"));
-                console.log($("form")[0]);
+                console.log("la petición es válida");
                 $("form")[0].reset(); // borra todos los campos de formulario
                                         // como jquery devuelve un array al pedir el form, hay que acceder a él con el [0]
                 $("#name").focus(); // pone el foco en el campo name
-                // songsListManager.load();
+                commentsList.load();
                 unsetLoading();
         },
         function() {
