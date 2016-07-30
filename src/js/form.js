@@ -23,8 +23,6 @@ $('.new-comment-form').on("submit", function(){
     var inputs = $(".new-comment-form").find("input, textarea");
     for (var i= 0; i<inputs.length; i++){
         var input = inputs[i];
-        // console.log(inputs[i]);
-        // console.log(inputs[i].val().length);
         if (input.checkValidity() == false){
             alert(input.validationMessage);
             input.focus();
@@ -52,8 +50,8 @@ $('.new-comment-form').on("submit", function(){
     apiClient.save(
         commentToAdd,
         function(response) { //función que se ejecuta cuando la petición sea válida
-                console.log("la petición es válida");
-                $("form")[0].reset(); // borra todos los campos de formulario
+            console.log($("form")[0]);
+                $("#add-new-comment")[0].reset(); // borra todos los campos de formulario
                                         // como jquery devuelve un array al pedir el form, hay que acceder a él con el [0]
                 $("#name").focus(); // pone el foco en el campo name
                 commentsList.load();
