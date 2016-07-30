@@ -20,7 +20,6 @@ module.exports = {
     },
     count: function(){
         apiClient.list(function(response){
-            console.log(response.length);
             if (response == 0){
                 var html = "No comments yet";
             } else {
