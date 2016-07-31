@@ -4,3 +4,6 @@
 #sparrest
 server.py
 /db
+
+#original images
+/src/img/originals
