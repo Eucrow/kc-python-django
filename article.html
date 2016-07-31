@@ -7,25 +7,23 @@
     <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa|Prompt" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/style.css" media="screen" title="no title" charset="utf-8">
 </head>
-<body>
+<body class="container">
     <header>
         <h1 class="header-title">cuartium</h1>
         <button class="hamburger">&#9776;</button>
         <button class="cross">&#735;</button>
         <div class="menu">
-            <ul>
+            <ul class="themes">
                 <a href="#"><li>onagra</li></a>
                 <a href="#"><li>tomillo</li></a>
                 <a href="#"><li>milenrama</li></a>
                 <a href="#"><li>celidonia</li></a>
                 <a href="#"><li>caléndula</li></a>
-                <li class="menu-inverse search">
-                    <form action="submit">
-                        <div class="icon icon-search"></div>
-                        <input type="text" name="search" id="search">
-                    </form>
-                </li>
-                <li class="menu-inverse identification"><a href="#">Login</a> | <a href="#">Register</a></li>
+            </ul>
+            <ul class="identification">
+                <!-- <li class="menu-inverse identification"><a href="#">Login</a> | <a href="#">Register</a></li> -->
+                <a href="#"><li class="menu-inverse">Login</li></a>
+                <a href="#"><li class="menu-inverse">Register</li></a>
             </ul>
         </div>
     </header>
@@ -75,7 +73,7 @@
         <div class="list-comments">
         </div>
 
-        <form class="" id="add-new-comment" novalidate="">
+        <form class="new-comment-form" id="add-new-comment" novalidate="">
                     <div>
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" placeholder="Name" required>

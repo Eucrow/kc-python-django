@@ -21,4 +21,7 @@ body{
     font-family: $main-font-family;
     font-size: $font-size-base;
     line-height: 1em;
+    @include if-is-tablet{
+        font-size: $font-size-tablet;
+    }
 }

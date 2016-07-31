@@ -27,6 +27,9 @@ header, body, footer, ul, h1, p {
 
 .container-section {
   padding-top: 50px; }
+  @media all and (min-width: 736px) {
+    .container-section {
+      padding-top: 85px; } }
   @media all and (min-width: 737px) {
     .container-section {
       max-width: 1200px; } }
@@ -101,6 +104,9 @@ body {
   font-family: "Prompt", sans-serif;
   font-size: 14px;
   line-height: 1em; }
+  @media all and (min-width: 736px) {
+    body {
+      font-size: 16px; } }
 
 header {
   position: fixed;
@@ -108,6 +114,9 @@ header {
   background-color: #7EBFD9;
   top: 0px;
   height: 50px; }
+  @media all and (min-width: 736px) {
+    header {
+      height: 85px; } }
   @media all and (min-width: 737px) {
     header {
       max-width: 1200px; } }
@@ -115,6 +124,10 @@ header {
     padding: 20px 0 0 5px;
     color: #1E2601;
     font-family: "Aref Ruqaa", serif; }
+    @media all and (min-width: 736px) {
+      header .header-title {
+        display: inline;
+        float: left; } }
 
 .hamburger {
   background: none;
@@ -130,6 +143,9 @@ header {
   cursor: pointer;
   outline: none;
   z-index: 10000000000000; }
+  @media all and (min-width: 736px) {
+    .hamburger {
+      display: none; } }
 
 .cross {
   background: none;
@@ -145,39 +161,55 @@ header {
   cursor: pointer;
   outline: none;
   z-index: 10000000000000; }
+  @media all and (min-width: 736px) {
+    .cross {
+      display: none; } }
 
 .menu {
   z-index: 1000000;
   font-weight: bold;
   color: #FFFFFF;
   background: #7EBFD9;
-  position: absolute;
+  position: fixed;
   top: 50px;
   right: 0px;
   text-align: right;
-  border-left: #7EBFD9 2px solid; }
+  border-left: #7EBFD9 2px solid;
+  display: none; }
+  @media all and (min-width: 736px) {
+    .menu {
+      position: absolute;
+      top: 50px;
+      right: auto;
+      left: 0px;
+      display: block;
+      line-height: 30px;
+      width: 100%;
+      font-size: 18px; }
+      .menu .themes {
+        float: left; }
+      .menu .identification {
+        float: right; } }
   .menu ul {
     list-style-type: none;
     list-style-image: none;
     font-family: "Aref Ruqaa", serif; }
-  .menu li {
+    @media all and (min-width: 736px) {
+      .menu ul {
+        display: inline; } }
+  .menu ul li {
     display: block;
     padding: 5px 10px 5px 10px;
     border-bottom: #7EBFD9 1px solid; }
+    @media all and (min-width: 736px) {
+      .menu ul li {
+        display: inline; } }
   .menu li:hover {
-    display: block;
     color: #4F5902;
     background: #FFFFFF;
     padding: 5px 10px 5px 10px; }
   .menu li.menu-inverse:hover {
     background: #7EBFD9; }
-  .menu ul li a {
-    text-decoration: none;
-    margin: 0px;
-    color: #FFFFFF; }
-  .menu ul li a:hover {
-    color: #FFFFFF;
-    text-decoration: none; }
   .menu a {
     text-decoration: none;
     color: #FFFFFF; }
@@ -198,7 +230,7 @@ article {
   font-size: 12px; }
   article .article-title {
     font-family: "Aref Ruqaa", serif;
-    font-size: 17px;
+    font-size: 23px;
     font-weight: 900;
     line-height: 1em;
     padding-bottom: 5px; }

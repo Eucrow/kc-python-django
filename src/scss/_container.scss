@@ -7,7 +7,11 @@
 }
 
 .container-section{
-    padding-top:50px;
+    padding-top: $distance-header;
+
+    @include if-is-tablet{
+        padding-top: $distance-header-tablet;
+    }
 
     @include if-is-desktop{
         max-width: $max-width-desktop;

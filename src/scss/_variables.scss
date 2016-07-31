@@ -14,6 +14,9 @@ $font-size-h4: $font-size-base +6px;
 $font-size-h5: $font-size-base +3px;
 $font-size-h6: $font-size-base;
 
+$font-size-tablet: $font-size-base + 2px;
+$font-size-menu-tablet: $font-size-base + 4px;
+
 // Base Colors:
 $color-white: #FFFFFF;
 $color-black: #000000;
@@ -22,6 +25,10 @@ $color-green: #4F5902;
 $color-dark-green: #1E2601;
 $color-blue: #7EBFD9;
 $color-dark-blue: #010A26;
+
+//distances
+$distance-header: 50px;
+$distance-header-tablet: 85px;
 
 // Responsive variables
 $tablet-width: 737px;

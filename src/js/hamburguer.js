@@ -4,7 +4,7 @@ var $ =require('jquery');
 
 $( ".cross" ).hide();
 
-$( ".menu" ).hide();
+// $( ".menu" ).hide();
 
 $( ".hamburger" ).click(function() {
     $( ".menu" ).slideToggle( "150", function() {
@@ -18,4 +18,12 @@ $( ".cross" ).click(function() {
         $( ".cross" ).hide();
         $( ".hamburger" ).show();
     });
+});
+
+//esto parece una chapucilla:
+$( window ).resize(function() {
+    if ($("window").width>736){
+        $( ".menu" ).show();
+    }
+
 });
