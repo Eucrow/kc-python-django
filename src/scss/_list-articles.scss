@@ -1,5 +1,6 @@
 article{
-    width: 95vw;
+    // width: 95vw;
+
     margin: 10px auto;
     padding: 10px 10px;
     box-shadow: 0 14px 10px -15px $color-blue;
@@ -21,7 +22,7 @@ article{
     }
 
     .article-picture{
-        max-width: 100%;
+        width: 100%;
     }
 
     .article-social{

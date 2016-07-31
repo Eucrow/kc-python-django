@@ -1,7 +1,19 @@
 .container{
-    width:100vw;
+    width:100%;
+
+    @include if-is-desktop{
+        max-width: $max-width-desktop;
+    }
 }
 
 .container-section{
     padding-top:50px;
+
+    @include if-is-desktop{
+        max-width: $max-width-desktop;
+    }
+}
+
+.container-article{
+    max-width:100%;
 }

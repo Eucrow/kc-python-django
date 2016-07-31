@@ -1,8 +1,8 @@
-//Font families
+// Font families
 $main-font-family: "Prompt", sans-serif;
 $secondary-font-family: 'Aref Ruqaa', serif;
 
-//Font sizes:
+// Font sizes:
 $font-size-base: 14px;
 $font-size-small: $font-size-base - 2px;
 $font-size-smallest: $font-size-base - 3px;
@@ -14,7 +14,7 @@ $font-size-h4: $font-size-base +6px;
 $font-size-h5: $font-size-base +3px;
 $font-size-h6: $font-size-base;
 
-//Base Colors:
+// Base Colors:
 $color-white: #FFFFFF;
 $color-black: #000000;
 $color-light-green: #898C27;
@@ -24,5 +24,7 @@ $color-blue: #7EBFD9;
 $color-dark-blue: #010A26;
 
 // Responsive variables
-//$tablet-width: 737px;
-//$phone-width: $tablet-width - 1px;
+$tablet-width: 737px;
+$phone-width: $tablet-width - 1px;
+
+$max-width-desktop: 1200px;

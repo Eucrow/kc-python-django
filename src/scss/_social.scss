@@ -1,3 +1,6 @@
-.icon-hearth {
+.icon-heart {
   @include sprite($icon-heart);
+}
+.icon-heart-red {
+  @include sprite($icon-heart-red);
 }
