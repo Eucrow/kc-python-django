@@ -121,10 +121,31 @@ header {
     padding: 20px 0 0 10px;
     color: #1E2601;
     font-family: "Aref Ruqaa", serif;
+    display: inline-block;
     float: left; }
+  header .search {
+    display: none; }
     @media all and (min-width: 736px) {
-      header .header-title {
-        display: inline; } }
+      header .search {
+        display: inline-block;
+        padding: 20px 10px 0 0;
+        float: right; } }
+    @media all and (min-width: 737px) {
+      header .search {
+        display: inline-block;
+        padding: 20px 10px 0 0;
+        float: right; } }
+    header .search button {
+      background-color: #7EBFD9;
+      border: none;
+      padding: 0px 0px;
+      text-decoration: none;
+      display: inline-block; }
+    header .search input {
+      height: 30px; }
+    header .search form > input.search-input {
+      margin: 0 0 5px 0;
+      max-width: 100px; }
 
 .hamburger {
   background: none;

@@ -15,6 +15,7 @@ moment.updateLocale('en', {
 comment_time = moment($('#1 time').attr("datetime"));
 
 time = moment(comment_time).fromNow();
+console.log (time);
 
 $("#fecha").append(time);
 

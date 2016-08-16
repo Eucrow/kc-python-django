@@ -17,13 +17,14 @@ $( ".cross" ).click(function() {
     $( ".menu" ).slideToggle( "250", function() {
         $( ".cross" ).hide();
         $( ".hamburger" ).show();
+        $( ".menu" ).removeAttr("style");
     });
 });
 
-//esto parece una chapucilla:
+// esto parece una chapucilla:
 // $( window ).resize(function() {
 //     if ($("window").width>736){
-//         $( ".menu" ).show();
+//         $( ".menu" ).removeAttr("style");
 //     }
 //
 // });

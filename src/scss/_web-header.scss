@@ -16,10 +16,42 @@ header{
         padding: 20px 0 0 10px;
         color: $color-dark-green;
         font-family: $secondary-font-family;
-        float: left;
+        display: inline-block;
+        float:left;
+    }
+
+    .search {
+        display: none;
+
         @include if-is-tablet{
-            display:inline;
+            display: inline-block;
+            padding: 20px 10px 0 0;
+            float: right;
         }
+
+        @include if-is-desktop{
+            display: inline-block;
+            padding: 20px 10px 0 0;
+            float: right;
+        }
+
+        button {
+            background-color: $color-blue;
+            border: none;
+            padding: 0px 0px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        input{
+            height: 30px;
+        }
+
+        form>input.search-input{
+            margin: 0 0 5px 0;
+            max-width: 100px;
+        }
+
+
     }
 }
 
@@ -36,15 +68,11 @@ header{
     cursor:pointer;
     outline:none;
     z-index:10000000000000;
-
     @include if-is-tablet{
         display:none;
     }
 }
 
-// .menu-icon {
-//   @include sprite($menu-icon);
-// }
 
 .cross{
     background:none;
@@ -58,15 +86,10 @@ header{
     cursor:pointer;
     outline:none;
     z-index:10000000000000;
-
     @include if-is-tablet{
         display:none;
     }
 }
-
-// .menu-cross {
-//   @include sprite($menu-cross);
-// }
 
 .menu{
     z-index:1000000;
@@ -98,8 +121,6 @@ header{
 
     @include  if-is-desktop{
         max-width: $max-width-desktop;
-        // position: fixed;
-        // top: $distance-header-tablet;
         right:auto;
     }
 
@@ -152,16 +173,6 @@ header{
     li.menu-inverse:hover{
         background: $color-blue;
     }
-    // ul li a {
-    //     text-decoration:none;
-    //     margin: 0px;
-    //     color:$color-white;
-    // }
-    // ul li a:hover {
-    //     color: $color-white;
-    //     text-decoration:none;
-    // }
-
     a{
         text-decoration:none;
         color:$color-white;
