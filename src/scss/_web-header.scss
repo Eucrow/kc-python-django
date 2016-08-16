@@ -13,9 +13,10 @@ header{
     };
 
     .header-title{
-        padding: 20px 0 0 5px;
+        padding: 20px 0 0 10px;
         color: $color-dark-green;
         font-family: $secondary-font-family;
+        float: left;
         @include if-is-tablet{
             display:inline;
             float:left;
@@ -26,11 +27,9 @@ header{
 
 .hamburger{
     background:none;
-    position:absolute;
-    top:0;
-    right:0;
+    float: right;
     line-height:45px;
-    padding:0px 15px 0px 15px;
+    padding:5px 15px 0px 15px;
     color:$color-white;
     border:0;
     font-size:1.4em;
@@ -43,17 +42,20 @@ header{
         display:none;
     }
 }
+
+// .menu-icon {
+//   @include sprite($menu-icon);
+// }
+
 .cross{
     background:none;
-    position:absolute;
-    top:0px;
-    right:0;
-    padding:0px 15px 0px 15px;
+    float: right;
+    padding:15px 15px 0px 15px;
     color:$color-white;
     border:0;
     font-size:3em;
-    line-height:65px;
-    font-weight:bold;
+    line-height:45px;
+    font-weight:lighter;
     cursor:pointer;
     outline:none;
     z-index:10000000000000;
@@ -63,23 +65,27 @@ header{
     }
 }
 
+// .menu-cross {
+//   @include sprite($menu-cross);
+// }
+
 .menu{
     z-index:1000000;
     font-weight:bold;
     color: $color-white;
     background:$color-blue;
     position:fixed;
-    top: 50px;
+    top: 44px;
     right: 0px;
     text-align:right;
     border-left:$color-blue 2px solid;
     display: none;
 
     @include if-is-tablet{
-        position: absolute;
-        top:50px;
-        right:auto;
-        left:0px;
+        // position: absolute;
+        // top:50px;
+        // right:auto;
+        // left:0px;
         display: block;
         line-height: 30px;;
         width: 100%;
@@ -106,6 +112,7 @@ header{
         border-bottom:$color-blue 1px solid;
         @include if-is-tablet{
             display: inline;
+            padding:5px 10px 0 10px;
         }
     }
 

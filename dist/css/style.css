@@ -121,9 +121,10 @@ header {
     header {
       max-width: 1200px; } }
   header .header-title {
-    padding: 20px 0 0 5px;
+    padding: 20px 0 0 10px;
     color: #1E2601;
-    font-family: "Aref Ruqaa", serif; }
+    font-family: "Aref Ruqaa", serif;
+    float: left; }
     @media all and (min-width: 736px) {
       header .header-title {
         display: inline;
@@ -131,11 +132,9 @@ header {
 
 .hamburger {
   background: none;
-  position: absolute;
-  top: 0;
-  right: 0;
+  float: right;
   line-height: 45px;
-  padding: 0px 15px 0px 15px;
+  padding: 5px 15px 0px 15px;
   color: #FFFFFF;
   border: 0;
   font-size: 1.4em;
@@ -149,15 +148,13 @@ header {
 
 .cross {
   background: none;
-  position: absolute;
-  top: 0px;
-  right: 0;
-  padding: 0px 15px 0px 15px;
+  float: right;
+  padding: 15px 15px 0px 15px;
   color: #FFFFFF;
   border: 0;
   font-size: 3em;
-  line-height: 65px;
-  font-weight: bold;
+  line-height: 45px;
+  font-weight: lighter;
   cursor: pointer;
   outline: none;
   z-index: 10000000000000; }
@@ -171,17 +168,13 @@ header {
   color: #FFFFFF;
   background: #7EBFD9;
   position: fixed;
-  top: 50px;
+  top: 44px;
   right: 0px;
   text-align: right;
   border-left: #7EBFD9 2px solid;
   display: none; }
   @media all and (min-width: 736px) {
     .menu {
-      position: absolute;
-      top: 50px;
-      right: auto;
-      left: 0px;
       display: block;
       line-height: 30px;
       width: 100%;
@@ -203,7 +196,8 @@ header {
     border-bottom: #7EBFD9 1px solid; }
     @media all and (min-width: 736px) {
       .menu ul li {
-        display: inline; } }
+        display: inline;
+        padding: 5px 10px 0 10px; } }
   .menu li:hover {
     color: #4F5902;
     background: #FFFFFF;
