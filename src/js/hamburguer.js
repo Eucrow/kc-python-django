@@ -21,9 +21,9 @@ $( ".cross" ).click(function() {
 });
 
 //esto parece una chapucilla:
-$( window ).resize(function() {
-    if ($("window").width>736){
-        $( ".menu" ).show();
-    }
-
-});
+// $( window ).resize(function() {
+//     if ($("window").width>736){
+//         $( ".menu" ).show();
+//     }
+//
+// });

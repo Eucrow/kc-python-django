@@ -114,9 +114,6 @@ header {
   background-color: #7EBFD9;
   top: 0px;
   height: 50px; }
-  @media all and (min-width: 736px) {
-    header {
-      height: 85px; } }
   @media all and (min-width: 737px) {
     header {
       max-width: 1200px; } }
@@ -127,8 +124,7 @@ header {
     float: left; }
     @media all and (min-width: 736px) {
       header .header-title {
-        display: inline;
-        float: left; } }
+        display: inline; } }
 
 .hamburger {
   background: none;
@@ -175,21 +171,36 @@ header {
   display: none; }
   @media all and (min-width: 736px) {
     .menu {
-      display: block;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
       line-height: 30px;
       width: 100%;
-      font-size: 18px; }
+      font-size: 18px;
+      right: auto; }
       .menu .themes {
-        float: left; }
+        text-align: left; }
       .menu .identification {
-        float: right; } }
+        text-align: right; } }
+  @media all and (min-width: 737px) {
+    .menu {
+      max-width: 1200px;
+      right: auto; } }
   .menu ul {
     list-style-type: none;
     list-style-image: none;
     font-family: "Aref Ruqaa", serif; }
     @media all and (min-width: 736px) {
       .menu ul {
-        display: inline; } }
+        display: inline;
+        margin: 0px; } }
   .menu ul li {
     display: block;
     padding: 5px 10px 5px 10px;

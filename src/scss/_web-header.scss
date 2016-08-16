@@ -6,7 +6,7 @@ header{
     height:50px;
     // line-height:50px;
     @include if-is-tablet{
-        height: $distance-header-tablet;
+        //height: $distance-header-tablet;
     }
     @include if-is-desktop{
         max-width: $max-width-desktop;
@@ -19,7 +19,6 @@ header{
         float: left;
         @include if-is-tablet{
             display:inline;
-            float:left;
         }
     }
 }
@@ -82,20 +81,26 @@ header{
     display: none;
 
     @include if-is-tablet{
-        // position: absolute;
-        // top:50px;
-        // right:auto;
-        // left:0px;
-        display: block;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         line-height: 30px;;
         width: 100%;
         font-size: $font-size-menu-tablet;
+        right:auto;
         .themes{
-            float:left;
+            text-align: left;
         }
         .identification{
-            float:right;
+            text-align: right;
         }
+    }
+
+    @include  if-is-desktop{
+        max-width: $max-width-desktop;
+        // position: fixed;
+        // top: $distance-header-tablet;
+        right:auto;
     }
 
     ul {
@@ -104,6 +109,7 @@ header{
         font-family: $secondary-font-family;
         @include if-is-tablet{
             display: inline;
+            margin: 0px;
         }
     }
     ul li {
