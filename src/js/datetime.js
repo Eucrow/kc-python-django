@@ -94,51 +94,29 @@ moment.updateLocale('es', {
 // setTimeout(foo, 10000);
 //
 // })();
-
-$(document).ready(function() {
+(function datetime(){
     var times =  $(".container-article").find("time");
-    // console.log(times);
     for (var i=0; i<times.length; i++) {
         time = $(times[i]);
-        // console.log($(times[i]));
         refreshTime(time);
     }
-});
 
-function refreshTime(time){
-    comment_time = moment($(time).attr("datetime"), "YYYY-MM-DD HH:mm:ss");
-    now_time = moment();
-    elapsed_time = now_time.diff(comment_time, 'seconds');
-    // console.log(elapsed_time);
-    // console.log(moment.duration(elapsed_time*1000).asMinutes());
-    // console.log(moment.duration(1400).asMinutes());
-    // console.log(comment_time.format());
-     console.log(comment_time.fromNow());
-    // console.log(moment.(comment_time).fromNow().as('seconds'));
+    function refreshTime(time){
+        comment_time = moment($(time).attr("datetime"), "YYYY-MM-DD HH:mm:ss");
+        now_time = moment();
+        elapsed_time = now_time.diff(comment_time, 'seconds');
 
-
-    if (elapsed_time < (60*60*24)){
-        $(time).append(comment_time.fromNow());
-    } else if (elapsed_time < (60*60*24*7)) {
-        var to_append = "el " + moment(comment_time).format('dddd');
-        $(time).append(to_append);
-    } else if (elapsed_time > (60*60*24*7)) {
-        $(time).append(comment_time.format('LLL'));
-        console.log(comment_time.format());
+        if (elapsed_time < (60*60*24)){
+            $(time).append(comment_time.fromNow());
+        } else if (elapsed_time < (60*60*24*7)) {
+            var to_append = "el " + moment(comment_time).format('dddd');
+            $(time).append(to_append);
+        } else if (elapsed_time > (60*60*24*7)) {
+            $(time).append(comment_time.format('LLL'));
+            console.log(comment_time.format());
+        }
     }
-}
-
-// if (elapsed_time < 59) {
-//     var intervalID = window.setInterval(refreshTime(), 1000);
-//     $("#fecha").append(time);
-//
-// }
-
-
-
-
-// $("#fecha").append(time);
-
+})();
 
 //  PRIMER INTENTO
 //ESTO ESTÁ A MEDIO HACER y además moments.js lo hace por nosotros
