@@ -5,7 +5,7 @@ var apiClientLikes = require('./api-client-likes.js');
 // var likes = [];
 var likes = apiClientLikes.getAll();
 // console.log(likes);
- console.log(typeof(likes));
+ // console.log(typeof(likes));
 
 function heartLike(idToChange){
     var imageToChange = $(".container-article").find("[data-id='" + idToChange + "']");
@@ -22,7 +22,7 @@ function heartDislike(idToChange){
 
 $( document ).ready(function() {
     for (like in likes){
-        console.log(likes[like]);
+        // console.log(likes[like]);
         idToChange = likes[like];
 
         // imageToChange.toggleClass("icon-hearth-white", "icon-hearth");
