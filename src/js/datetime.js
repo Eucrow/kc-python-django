@@ -88,12 +88,6 @@ moment.updateLocale('es', {
     relativeTime : {s: "%d segundos"}
 });
 
-// (function foo(){
-//  alert ("esto es una prueba");
-//
-// setTimeout(foo, 10000);
-//
-// })();
 (function datetime(){
     var times =  $(".container-article").find("time");
     for (var i=0; i<times.length; i++) {
@@ -106,8 +100,14 @@ moment.updateLocale('es', {
         now_time = moment();
         elapsed_time = now_time.diff(comment_time, 'seconds');
 
-        if (elapsed_time < (60*60*24)){
-            $(time).append(comment_time.fromNow());
+        if (elapsed_time < 60){
+            $(time).text(comment_time.fromNow());
+            setTimeout(datetime, 1000);
+        } else if (elapsed_time < (60*60)) {
+            $(time).text(comment_time.fromNow());
+            setTimeout(datetime, 60000);
+        } else if (elapsed_time < (60*60*24)){
+            $(time).text(comment_time.fromNow());
         } else if (elapsed_time < (60*60*24*7)) {
             var to_append = "el " + moment(comment_time).format('dddd');
             $(time).append(to_append);
