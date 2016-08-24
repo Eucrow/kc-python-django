@@ -3,7 +3,7 @@ header{
     width:100%;
     background-color: $color-blue;
     top: 0px;
-    height:50px;
+    height: 4rem;
     // line-height:50px;
     @include if-is-tablet{
         //height: $distance-header-tablet;
@@ -18,6 +18,15 @@ header{
         font-family: $secondary-font-family;
         display: inline-block;
         float:left;
+
+        a{
+            color: $color-dark-green;
+            text-decoration: none;
+        }
+    }
+
+    h1 {
+
     }
 
     .search {
@@ -93,11 +102,11 @@ header{
 
 .menu{
     z-index:1000000;
-    font-weight:bold;
+    font-weight:500;
     color: $color-white;
     background:$color-blue;
     position:fixed;
-    top: 44px;
+    top: 4rem;
     right: 0px;
     text-align:right;
     border-left:$color-blue 2px solid;
@@ -107,7 +116,7 @@ header{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        line-height: 30px;;
+        line-height: 2.5rem;;
         width: 100%;
         font-size: $font-size-menu-tablet;
         right:auto;
@@ -141,28 +150,6 @@ header{
             display: inline;
             padding:5px 10px 0 10px;
         }
-    }
-
-    // ul li .themes, ul li .identification{
-    //     @include if-is-tablet{
-    //         display: inline;
-    //     }
-    // }
-    // ul li .search{
-    //     @include if-is-tablet{
-    //         display: block;
-    //
-    // }
-
-    ul li form {
-        // @include if-is-tablet{
-        //     display: table-cell;
-        // }
-    }
-    ul a{
-        // @include if-is-tablet{
-        //     display: table-cell;
-        // }
     }
     li:hover{
         // display: block;

@@ -13,9 +13,8 @@ function setLoading(){ // antes de enviar, pero despues de dar un click al botó
 }
 function unsetLoading(){ //se ejecuta cuando la petición acaba, haya acabado bien o mal
     $(inputs).attr("disabled", false);// habilito todos los imputs
-    newCommentFormButton.text("Saving comment").attr("disabled", false);
+    newCommentFormButton.text("Send your comment").attr("disabled", false);
 }
-
 
 //event listener al botón de enviar formulario
 $('.new-comment-form').on("submit", function(){

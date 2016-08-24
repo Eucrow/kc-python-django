@@ -9,9 +9,15 @@
 </head>
 <body class="container">
     <header>
-        <h1 class="header-title">cuartium</h1>
+        <h1 class="header-title"><a href="index.html" class="toIndex">cuartium</a></h1>
         <button class="hamburger">&#9776;</button>
         <button class="cross">&#735;</button>
+        <div class="search">
+            <form class ="search-form">
+                <input class ="search-input" type="text" name="search" id="search-input" placeholder="search">
+                <button for="search-input"><div class = "icon icon-search" ></div></button>
+            </form>
+        </div>
         <div class="menu">
             <ul class="themes">
                 <a href="#"><li>onagra</li></a>
@@ -25,20 +31,21 @@
                 <a href="#"><li class="menu-inverse">Login</li></a>
                 <a href="#"><li class="menu-inverse">Register</li></a>
             </ul>
+
         </div>
     </header>
-
+    <a name="begin"></a>
     <section class="container-section">
         <article name="begin">
-            <div class="article-title">Lorem ipsum dolor sit amet, consectetur.</div>
             <img class="article-picture" src="src/img/uploads/4-Tomillo_en_flor.jpg" alt="Picture 1">
+            <div class="article-title"><a href="article.html">Lorem ipsum dolor sit amet, consectetur.</a></div>
             <div class="article-introduction">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa doloribus
             dolorum officia animi eligendi soluta possimus aliquid non omnis! Veritatis aut
             sunt accusantium cum hic adipisci, omnis optio maiores, fugit consectetur
             suscipit temporibus ratione deleniti animi, aliquid similique reiciendis placeat
             nam nemo dolore nihil.</p>
-            <p> Qui adipisci quisquam consequatur animi repellat earum
+            <p> Qui adipisci <span class="bold">quisquam consequatur</span> animi repellat earum
             eligendi distinctio rem accusamus minus voluptatibus, consequuntur minima ab, et
             accusantium quaerat sunt perspiciatis praesentium sed eum, esse. Aspernatur
             eligendi ab amet magni eum ut molestias expedita ea, mollitia nemo quia, quasi
@@ -46,7 +53,7 @@
             deserunt beatae non dolorum.</p>
             <p> Esse sit mollitia neque quis tenetur maiores,
             molestiae nesciunt alias sunt illum nam cupiditate voluptates rem quo voluptatem
-            consequuntur doloribus quam eaque amet in labore corrupti. Ducimus reprehenderit
+            consequuntur <span class="italic">doloribus quam eaque</span> amet in labore corrupti. Ducimus reprehenderit
             ratione consequuntur quisquam quaerat rerum voluptatem, quos aspernatur.</p>
             <p> Hic cum
             dignissimos, iste similique unde accusamus praesentium ducimus esse quisquam
@@ -59,38 +66,43 @@
             dicta, ratione. Repudiandae harum, mollitia!</p>
             </div>
             <div class="article-social clearfix">
-                <div class="article-social-likes icon-hearth"></div>
-                <div class="article-social-avatar icon-placeholder clearfix"></div>
-                <div class="article-social-name">Marco A. Amez</div>
-                <div class="article-social-fecha"><time datetime="2016-8-21 13:40:00">tiempo</div>
-                <div class="article-social-comments">25 comentarios</div>
+                <div class="article-social left">
+                    <div class="article-social-avatar icon-placeholder clearfix"></div>
+                </div>
+                <div class="article-social right">
+                    <div class="article-social-likes icon-heart" data-id="1"></div>
+                    <div class="article-social-comments">25 comentarios</div>
+                </div>
+                <div class="article-social center">
+                    <div class="article-social-name">Marco A. Amez</div>
+                    <div class="article-social-fecha"><time datetime="2016-8-21 13:40:00">tiempo</div>
+                </div>
             </div>
         </article>
     </section>
 
     <section class="comments">
-        <div class="number-of-comments"></div>
         <div class="list-comments">
         </div>
 
         <form class="new-comment-form" id="add-new-comment" novalidate="">
                     <div>
-                        <label for="name">Name:</label>
+                        <!-- <label for="name">Name:</label> -->
                         <input type="text" id="name" name="name" placeholder="Name" required>
                     </div>
                     <div>
-                        <label for="surname">Surname:</label>
+                        <!-- <label for="surname">Surname:</label> -->
                         <input type="text" id="surname" name="surname" placeholder="Surname" required>
                     </div>
                     <div>
-                        <label for="email">Email</label>
+                        <!-- <label for="email">Email:</label> -->
                         <input type="email" id="email" name="email" placeholder="Email" required>
                     </div>
                     <div>
-                        <label for="comment">Comment</label>
-                        <textarea name="comment" id="comment" rows="8" cols="40" placeholder="Comment" required></textarea>
+                        <!-- <label for="comment">Comment:</label> -->
+                        <textarea name="comment" id="comment" rows="8" placeholder="Comment" required></textarea>
                     </div>
-                    <button>Send comment</button>
+                    <button>Send your comment</button>
                 </form>
     </section>
 

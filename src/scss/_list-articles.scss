@@ -2,49 +2,62 @@ article{
     // width: 95vw;
 
     margin: 10px auto;
-    padding: 10px 10px;
-    box-shadow: 0 14px 10px -15px $color-blue;
-    font-size: $font-size-small;
+    padding: 10px;
+    // box-shadow: 0 14px 10px -15px $color-blue;
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-color: $color-light-green;
+    font-size: $font-size-base;
+    line-height: 1.5em;
+
+    .article-picture{
+        display: block;
+        max-height: 300px;
+        padding: 20px 0;
+        margin: 0 auto;
+    }
 
     .article-title{
         font-family: $secondary-font-family;
         font-size: $font-size-h3;
-        font-weight: 900;
-        line-height: 1em;
-        padding-bottom: 5px;
+        font-weight: 500;
+        line-height: 3rem;
+        padding: 0 0 10px 0;
         a{
             text-decoration: none;
-            color: $color-dark-green;
+            color: $color-green;
             &:hover{
-                color: $color-blue;
+                color: $color-dark-blue;
             }
         }
     }
 
-    .article-picture{
-        width: 100%;
+    .article-introduction{
+        padding: 0 0 10px 0;
     }
 
     .article-social{
-        width: 100%;
         padding-top: 8px;
+        font-size: $font-size-smallest;
+        line-height: 1.5rem;
+        .right{
+            float: right;
+            text-align: right;
+        }
+        .left{
+            float: left;
+        }
+        .center{
+            display: inline-block;
+            padding-left: 10px;
+        }
         .article-social-avatar{
-            float:left;
             width: $icon-placeholder-width;
             height: $icon-placeholder-height;
             margin-right: 5px;
         }
-        .article-social-name{
-            display: block;
-        }
-        .article-social-fecha{
-            display: block;
-        }
         .article-social-likes{
-            float: right;
-        }
-        .article-social-comments{
-            float: left;
+            display: inline-block;
         }
     }
 }

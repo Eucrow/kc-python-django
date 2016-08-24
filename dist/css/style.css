@@ -29,7 +29,7 @@ header, body, footer, ul, h1, p {
   padding-top: 50px; }
   @media all and (min-width: 736px) {
     .container-section {
-      padding-top: 85px; } }
+      padding-top: 9rem; } }
   @media all and (min-width: 737px) {
     .container-section {
       max-width: 1200px; } }
@@ -83,37 +83,37 @@ The `sprites` mixin generates identical output to the CSS template
 @include sprites($spritesheet-sprites);
 */
 h1 {
-  font-size: 29px; }
+  font-size: 36px; }
 
 h2 {
-  font-size: 26px; }
+  font-size: 33px; }
 
 h3 {
-  font-size: 23px; }
+  font-size: 30px; }
 
 h4 {
-  font-size: 20px; }
+  font-size: 27px; }
 
 h5 {
-  font-size: 17px; }
+  font-size: 24px; }
 
 h6 {
-  font-size: 14px; }
+  font-size: 21px; }
 
 body {
   font-family: "Prompt", sans-serif;
-  font-size: 14px;
+  font-size: 21px;
   line-height: 1em; }
   @media all and (min-width: 736px) {
     body {
-      font-size: 16px; } }
+      font-size: 23px; } }
 
 header {
   position: fixed;
   width: 100%;
   background-color: #7EBFD9;
   top: 0px;
-  height: 50px; }
+  height: 4rem; }
   @media all and (min-width: 737px) {
     header {
       max-width: 1200px; } }
@@ -123,6 +123,9 @@ header {
     font-family: "Aref Ruqaa", serif;
     display: inline-block;
     float: left; }
+    header .header-title a {
+      color: #1E2601;
+      text-decoration: none; }
   header .search {
     display: none; }
     @media all and (min-width: 736px) {
@@ -181,11 +184,11 @@ header {
 
 .menu {
   z-index: 1000000;
-  font-weight: bold;
+  font-weight: 500;
   color: #FFFFFF;
   background: #7EBFD9;
   position: fixed;
-  top: 44px;
+  top: 4rem;
   right: 0px;
   text-align: right;
   border-left: #7EBFD9 2px solid;
@@ -202,9 +205,9 @@ header {
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between;
-      line-height: 30px;
+      line-height: 2.5rem;
       width: 100%;
-      font-size: 18px;
+      font-size: 23px;
       right: auto; }
       .menu .themes {
         text-align: left; }
@@ -251,38 +254,48 @@ header {
 
 article {
   margin: 10px auto;
-  padding: 10px 10px;
-  box-shadow: 0 14px 10px -15px #7EBFD9;
-  font-size: 12px; }
+  padding: 10px;
+  border-bottom: solid;
+  border-bottom-width: 1px;
+  border-color: #898C27;
+  font-size: 21px;
+  line-height: 1.5em; }
+  article .article-picture {
+    display: block;
+    max-height: 300px;
+    padding: 20px 0;
+    margin: 0 auto; }
   article .article-title {
     font-family: "Aref Ruqaa", serif;
-    font-size: 23px;
-    font-weight: 900;
-    line-height: 1em;
-    padding-bottom: 5px; }
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 3rem;
+    padding: 0 0 10px 0; }
     article .article-title a {
       text-decoration: none;
-      color: #1E2601; }
+      color: #4F5902; }
       article .article-title a:hover {
-        color: #7EBFD9; }
-  article .article-picture {
-    width: 100%; }
+        color: #010A26; }
+  article .article-introduction {
+    padding: 0 0 10px 0; }
   article .article-social {
-    width: 100%;
-    padding-top: 8px; }
+    padding-top: 8px;
+    font-size: 15px;
+    line-height: 1.5rem; }
+    article .article-social .right {
+      float: right;
+      text-align: right; }
+    article .article-social .left {
+      float: left; }
+    article .article-social .center {
+      display: inline-block;
+      padding-left: 10px; }
     article .article-social .article-social-avatar {
-      float: left;
       width: 50px;
       height: 49px;
       margin-right: 5px; }
-    article .article-social .article-social-name {
-      display: block; }
-    article .article-social .article-social-fecha {
-      display: block; }
     article .article-social .article-social-likes {
-      float: right; }
-    article .article-social .article-social-comments {
-      float: left; }
+      display: inline-block; }
 
 .icon-placeholder {
   background-image: url(../img/sprite.png);
@@ -291,7 +304,73 @@ article {
   height: 49px; }
 
 .new-comment-form {
-  display: none; }
+  display: none;
+  width: 100%;
+  padding: 20px 0px;
+  text-align: center; }
+  .new-comment-form input,
+  .new-comment-form textarea {
+    padding: 5px;
+    margin: 5px;
+    background-color: #EEEEEE;
+    border-style: none;
+    width: 300px;
+    font-family: "Prompt", sans-serif; }
+  .new-comment-form ::-webkit-input-placeholder {
+    font-size: 15px;
+    color: #4F5902; }
+  .new-comment-form :-moz-placeholder {
+    /* Firefox 18- */
+    font-size: 15px;
+    color: #4F5902; }
+  .new-comment-form ::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 15px;
+    color: #4F5902; }
+  .new-comment-form :-ms-input-placeholder {
+    font-size: 15px;
+    color: #4F5902; }
+  .new-comment-form button {
+    background-color: #EEEEEE;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px; }
+    .new-comment-form button:hover {
+      background-color: #FFFFFF; }
+
+.comments {
+  padding: 30px 10px 10px 10px;
+  margin: auto; }
+  @media all and (min-width: 736px) {
+    .comments {
+      max-width: 800px; } }
+  @media all and (min-width: 737px) {
+    .comments {
+      max-width: 800px; } }
+
+.number-of-comments {
+  padding-bottom: 10px; }
+
+.comment {
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #E6F2F6;
+  border-left: solid;
+  border-left-width: 1px;
+  border-color: #898C27; }
+  .comment .comment-text {
+    padding-left: 15px; }
+  .comment .comment-personal-data {
+    width: 100%;
+    text-align: right; }
+    .comment .comment-personal-data .comment-name,
+    .comment .comment-personal-data .comment-surname {
+      font-size: 15px;
+      display: inline;
+      width: 100%; }
+    .comment .comment-personal-data .comment-name::after {
+      content: " "; }
 
 .icon-heart {
   background-image: url(../img/sprite.png);
@@ -305,13 +384,19 @@ article {
   width: 20px;
   height: 20px; }
 
+.bold {
+  font-weight: 900; }
+
+.italic {
+  font-style: italic; }
+
 footer {
   width: 100%;
   background-color: #7EBFD9;
   vertical-align: bottom; }
   footer .footer-title {
     font-family: "Aref Ruqaa", serif;
-    font-size: 29px;
+    font-size: 36px;
     font-weight: bold;
     color: #1E2601;
     display: inline-block;
@@ -319,7 +404,7 @@ footer {
   footer .copyright {
     width: 100%;
     text-align: center;
-    font-size: 11px; }
+    font-size: 15px; }
 
 .icon-up {
   background-image: url(../img/sprite.png);

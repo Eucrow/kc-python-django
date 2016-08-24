@@ -14,12 +14,14 @@ module.exports = {
                 var email = commentToGet.email || "";
                 var comment_text = commentToGet.comment || "";
 
-                var html = '<article class="comment" comment-id="'+ comment_id +'">';
-                html += '<div>' + name + '</div>';
-                html += '<div>' + surname + '</div>';
-                html += '<div>' + email + '</div>';
-                html += '<div>' + comment_text + '</div>';
-                html += '</article>';
+                var html = '<div class="comment" comment-id="'+ comment_id +'">';
+                html += '<div class="comment-text">' + comment_text + '</div>';
+                html += '<div class="comment-personal-data">';
+                    html += '<div class="comment-name">by ' + name + '</div>';
+                    html += '<div class="comment-surname">' + surname + '</div>';
+                html += '</div>';
+                // html += '<div>' + email + '</div>';
+                html += '</div>';
                 $('.list-comments').append(html);
             }
         },

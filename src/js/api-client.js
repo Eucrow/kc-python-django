@@ -11,7 +11,7 @@ module.exports = {
         formData.append("surname", commentToAdd.surname);
         formData.append("email", commentToAdd.email);
         formData.append("comment", commentToAdd.comment);
-console.log(formData);
+// console.log(formData);
         $.ajax({
             url:"/api/comments/", //url donde vamos a hacer la peticion (donde va a guardar los datos)
             method: "post", // método post porque queremos crear un comentario
@@ -26,7 +26,7 @@ console.log(formData);
     list: function(successCallback, errorCallback){
         $.ajax({
             url:"/api/comments/", //url donde vamos a hacer la peticion (donde va a guardar los datos)
-            method: "get", // método post porque queremos crear una canción
+            method: "get", 
             success: successCallback,
             error: errorCallback
         });

@@ -9,6 +9,10 @@
 .container-section{
     padding-top: $distance-header;
 
+    article{
+        // box-shadow: none;
+    }
+
     @include if-is-tablet{
         padding-top: $distance-header-tablet;
     }

@@ -21,7 +21,7 @@ moment.updateLocale('es', {
 });
 
 (function datetime(){
-    var times =  $(".container-article").find("time");
+    var times =  $(".article-social-fecha").find("time");
     for (var i=0; i<times.length; i++) {
         time = $(times[i]);
         refresh(time);
