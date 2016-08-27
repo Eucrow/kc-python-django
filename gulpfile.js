@@ -12,12 +12,14 @@ var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var imagemin = require('gulp-imagemin');
-var spritesmith = require('gulp.spritesmith')
+var spritesmith = require('gulp.spritesmith');
+var responsive = require('gulp-responsive-images');
 
 //variables d epatrones de archivos
 var jsFiles =["src/js/*.js/", "src/js/**/*.js"];
 var spriteDir = ["src/img/sprites/*.png", "src/img/sprites/*.jpg", "src/img/sprites/*.gif", "src/img/sprites/*.svg"];
-var uploadedImages = ["src/img/uploads/*.jpg"];
+var uploadedImages = ["uploads/*.png", "uploads/*.jpg", "uploads/*.gif", "uploads/*.svg"];
+var imageDir = ["./img/*"]
 
 // definimos tarea por defecto
 gulp.task("default", ["concat-js", "compile-sass", "spritesheet"], function(){
@@ -39,6 +41,8 @@ gulp.task("default", ["concat-js", "compile-sass", "spritesheet"], function(){
 
     //observar cambios en los assets para optimzarlos
     gulp.watch(spriteDir, ["spritesheet"]);
+
+    gulp.watch()
 });
 
 // definimos la tarea para compilar SASS
@@ -98,5 +102,19 @@ gulp.task("spritesheet", function(){
 gulp.task("uploaded-images-optimization", function(){
    gulp.src(uploadedImages)
    .pipe(imagemin())
-   .pipe(gulp.dest('./uploads/'));
+   .pipe(gulp.dest(uploadedImages));
+});
+
+// optimización de imágenes de usuario para responsive
+// se debería hacer en el backend
+gulp.task("responsive", function(){
+    gulp.src('./uploads/*.jpg')
+    .pipe(responsive({
+        '*.jpg':[
+            { width: 1280, suffix: "_1280"},
+            { width: 800, suffix: "_800"},
+            { width: 400, suffix: "_400"}
+        ]
+    }))
+    .pipe(gulp.dest('./dist/uploads/'))
 });

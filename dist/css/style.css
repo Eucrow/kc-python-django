@@ -262,9 +262,16 @@ article {
   line-height: 1.5em; }
   article .article-picture {
     display: block;
-    max-height: 300px;
+    max-width: 600px;
+    width: 100%;
     padding: 20px 0;
     margin: 0 auto; }
+    @media all and (min-width: 736px) {
+      article .article-picture {
+        max-width: 736px; } }
+    @media all and (min-width: 737px) {
+      article .article-picture {
+        max-width: 736px; } }
   article .article-title {
     font-family: "Aref Ruqaa", serif;
     font-size: 30px;

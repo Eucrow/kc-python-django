@@ -29,7 +29,7 @@
             <ul class="identification">
                 <!-- <li class="menu-inverse identification"><a href="#">Login</a> | <a href="#">Register</a></li> -->
                 <a href="#"><li class="menu-inverse">Login</li></a>
-                <a href="#"><li class="menu-inverse">Register</li></a>
+                <a href="#"><li class="menu-inverse">Regístrate</li></a>
             </ul>
 
         </div>
@@ -37,7 +37,12 @@
     <a name="begin"></a>
     <section class="container-section">
         <article name="begin">
-            <img class="article-picture" src="src/img/uploads/4-Tomillo_en_flor.jpg" alt="Picture 1">
+            <img class="article-picture" alt="Picture 1" src="dist/uploads/tomillo_800.jpg"
+                                                         srcset="
+                                                         dist/uploads/tomillo_1280.jpg 736w,
+                                                         dist/uploads/tomillo_800.jpg 736w,
+                                                         dist/uploads/tomillo_400.jpg 400w
+                                                         ">
             <div class="article-title"><a href="article.html">Lorem ipsum dolor sit amet, consectetur.</a></div>
             <div class="article-introduction">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa doloribus
@@ -88,11 +93,11 @@
         <form class="new-comment-form" id="add-new-comment" novalidate="">
                     <div>
                         <!-- <label for="name">Name:</label> -->
-                        <input type="text" id="name" name="name" placeholder="Name" required>
+                        <input type="text" id="name" name="name" placeholder="Nombre" required>
                     </div>
                     <div>
                         <!-- <label for="surname">Surname:</label> -->
-                        <input type="text" id="surname" name="surname" placeholder="Surname" required>
+                        <input type="text" id="surname" name="surname" placeholder="Apellidos" required>
                     </div>
                     <div>
                         <!-- <label for="email">Email:</label> -->
@@ -100,9 +105,9 @@
                     </div>
                     <div>
                         <!-- <label for="comment">Comment:</label> -->
-                        <textarea name="comment" id="comment" rows="8" placeholder="Comment" required></textarea>
+                        <textarea name="comment" id="comment" rows="8" placeholder="Comentario" required></textarea>
                     </div>
-                    <button>Send your comment</button>
+                    <button>Envía tu comentario</button>
                 </form>
     </section>
 

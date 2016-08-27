@@ -12,9 +12,18 @@ article{
 
     .article-picture{
         display: block;
-        max-height: 300px;
+        max-width: 600px;
+        width: 100%;
         padding: 20px 0;
         margin: 0 auto;
+
+        @include if-is-tablet{
+            max-width: 736px;
+        }
+
+        @include if-is-desktop{
+            max-width: 736px;
+        }
     }
 
     .article-title{

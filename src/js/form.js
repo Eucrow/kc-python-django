@@ -8,12 +8,12 @@ var inputs = $(".new-comment-form").find("input, textarea");
 
 function setLoading(){ // antes de enviar, pero despues de dar un click al botón
     $(inputs).attr("disabled", true);// desabilito todos los imputs
-    newCommentFormButton.text("Saving comment...").attr("disabled", true); // sobre un mismo objeto, se ejecuta un método.
+    newCommentFormButton.text("Grabando comentario...").attr("disabled", true); // sobre un mismo objeto, se ejecuta un método.
                                                                     // cambio el texto del botón y lo desabilito
 }
 function unsetLoading(){ //se ejecuta cuando la petición acaba, haya acabado bien o mal
     $(inputs).attr("disabled", false);// habilito todos los imputs
-    newCommentFormButton.text("Send your comment").attr("disabled", false);
+    newCommentFormButton.text("Envía tu comentario").attr("disabled", false);
 }
 
 //event listener al botón de enviar formulario
