@@ -11,17 +11,17 @@ $icon-home: x y offset_x offset_y width height total_width total_height image_pa
 At the bottom of this section, we provide information about the spritesheet itself
 $spritesheet: width height image $spritesheet-sprites;
 */
-$icon-heart-red-name: 'icon-heart-red';
-$icon-heart-red-x: 24px;
-$icon-heart-red-y: 49px;
-$icon-heart-red-offset-x: -24px;
-$icon-heart-red-offset-y: -49px;
-$icon-heart-red-width: 20px;
-$icon-heart-red-height: 20px;
-$icon-heart-red-total-width: 95px;
-$icon-heart-red-total-height: 73px;
-$icon-heart-red-image: '../img/sprite.png';
-$icon-heart-red: (24px, 49px, -24px, -49px, 20px, 20px, 95px, 73px, '../img/sprite.png', 'icon-heart-red', );
+$icon-heart-blue-name: 'icon-heart-blue';
+$icon-heart-blue-x: 24px;
+$icon-heart-blue-y: 49px;
+$icon-heart-blue-offset-x: -24px;
+$icon-heart-blue-offset-y: -49px;
+$icon-heart-blue-width: 20px;
+$icon-heart-blue-height: 20px;
+$icon-heart-blue-total-width: 95px;
+$icon-heart-blue-total-height: 73px;
+$icon-heart-blue-image: '../img/sprite.png';
+$icon-heart-blue: (24px, 49px, -24px, -49px, 20px, 20px, 95px, 73px, '../img/sprite.png', 'icon-heart-blue', );
 $icon-heart-name: 'icon-heart';
 $icon-heart-x: 44px;
 $icon-heart-y: 49px;
@@ -91,7 +91,7 @@ $icon-up: (75px, 0px, -75px, 0px, 20px, 20px, 95px, 73px, '../img/sprite.png', '
 $spritesheet-width: 95px;
 $spritesheet-height: 73px;
 $spritesheet-image: '../img/sprite.png';
-$spritesheet-sprites: ($icon-heart-red, $icon-heart, $icon-menu-close, $icon-menu-open, $icon-placeholder, $icon-search, $icon-up, );
+$spritesheet-sprites: ($icon-heart-blue, $icon-heart, $icon-menu-close, $icon-menu-open, $icon-placeholder, $icon-search, $icon-up, );
 $spritesheet: (95px, 73px, '../img/sprite.png', $spritesheet-sprites, );
 
 /*

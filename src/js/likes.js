@@ -10,12 +10,12 @@ var likes = apiClientLikes.getAll();
 function heartLike(idToChange){
     var imageToChange = $(".container-article").find("[data-id='" + idToChange + "']");
     imageToChange.removeClass("icon-heart");
-    imageToChange.addClass("icon-heart-red");
+    imageToChange.addClass("icon-heart-blue");
 }
 
 function heartDislike(idToChange){
     var imageToChange = $(".container-article").find("[data-id='" + idToChange + "']");
-    imageToChange.removeClass("icon-heart-red");
+    imageToChange.removeClass("icon-heart-blue");
     imageToChange.addClass("icon-heart");
 }
 

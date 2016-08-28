@@ -23,7 +23,7 @@ module.exports = {
             if (response == 0){
                 var html = "No comments yet";
             } else {
-                var html = response.length + " comments";
+                var html = response.length + " comentarios";
             }
 
             $(".number-of-comments").append(html);
