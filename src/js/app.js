@@ -1,4 +1,4 @@
-require("./hamburguer");
+require("./menu");
 require("./datetime");
 require("./likes");
 require("./form");

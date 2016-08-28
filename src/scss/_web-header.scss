@@ -28,8 +28,8 @@ header{
     .search {
         display: inline-block;
         float: right;
-        padding: 5px 0 0 0;
-        line-height: 40px;
+        padding: 20px 5px 0 0;
+        // line-height: 40px;
 
         @include if-is-tablet{
             display: inline-block;
@@ -52,7 +52,7 @@ header{
             vertical-align: middle;
         }
         input{
-            height: 30px;
+            height: 24px;
         }
 
         form>input.search-input{
@@ -64,16 +64,13 @@ header{
 }
 
 
-.hamburger{
+.open{
+    border: none;
     background:none;
     float: right;
     width: 45px;
     line-height:45px;
-    padding:5px 15px 0px 15px;
-    color:$color-white;
-    border:0;
-    font-size:1.4em;
-    font-weight:bold;
+    padding:22px 15px 0px 15px;
     cursor:pointer;
     outline:none;
     z-index:10000000000000;
@@ -82,18 +79,11 @@ header{
     }
 }
 
-.cross{
-    background:none;
-    float: right;
-    width: 45px;
-    line-height:45px;
-    padding:15px 15px 0px 15px;
-    color:$color-white;
-    border:0;
-    font-size:3em;
-    font-weight:lighter;
+.close{
+    @extend .open;
     cursor:pointer;
-    outline:none;
+    display: none;
+
     z-index:10000000000000;
     @include if-is-tablet{
         display:none;
@@ -172,6 +162,22 @@ header{
 
 .icon-search {
   @include sprite($icon-search);
+
+  &::after{
+      content: "\00a0";
+  }
+}
+
+.icon-menu-open {
+    @include sprite($icon-menu-open);
+
+    &::after{
+        content: "\00a0";
+    }
+}
+
+.icon-menu-close {
+  @include sprite($icon-menu-close);
 
   &::after{
       content: "\00a0";

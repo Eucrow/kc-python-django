@@ -2,21 +2,21 @@ var $ =require('jquery');
 
 //adaptado de: https://codepen.io/g13nn/pen/eHGEF
 
-$( ".cross" ).hide();
+$( ".close" ).hide();
 
 // $( ".menu" ).hide();
 
-$( ".hamburger" ).click(function() {
+$( ".open" ).click(function() {
     $( ".menu" ).slideToggle( "150", function() {
-        $( ".hamburger" ).hide();
-        $( ".cross" ).show();
+        $( ".open" ).hide();
+        $( ".close" ).show();
         });
 });
 
-$( ".cross" ).click(function() {
+$( ".close" ).click(function() {
     $( ".menu" ).slideToggle( "250", function() {
-        $( ".cross" ).hide();
-        $( ".hamburger" ).show();
+        $( ".close" ).hide();
+        $( ".open" ).show();
         $( ".menu" ).removeAttr("style");
     });
 });

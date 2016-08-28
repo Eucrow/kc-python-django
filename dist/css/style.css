@@ -129,8 +129,7 @@ header {
   header .search {
     display: inline-block;
     float: right;
-    padding: 5px 0 0 0;
-    line-height: 40px; }
+    padding: 20px 5px 0 0; }
     @media all and (min-width: 736px) {
       header .search {
         display: inline-block;
@@ -149,44 +148,32 @@ header {
       display: inline-block;
       vertical-align: middle; }
     header .search input {
-      height: 30px; }
+      height: 24px; }
     header .search form > input.search-input {
       margin: 0 0 5px 0;
       max-width: 100px;
       border: 0px; }
 
-.hamburger {
+.open, .close {
+  border: none;
   background: none;
   float: right;
   width: 45px;
   line-height: 45px;
-  padding: 5px 15px 0px 15px;
-  color: #FFFFFF;
-  border: 0;
-  font-size: 1.4em;
-  font-weight: bold;
+  padding: 22px 15px 0px 15px;
   cursor: pointer;
   outline: none;
   z-index: 10000000000000; }
   @media all and (min-width: 736px) {
-    .hamburger {
+    .open, .close {
       display: none; } }
 
-.cross {
-  background: none;
-  float: right;
-  width: 45px;
-  line-height: 45px;
-  padding: 15px 15px 0px 15px;
-  color: #FFFFFF;
-  border: 0;
-  font-size: 3em;
-  font-weight: lighter;
+.close {
   cursor: pointer;
-  outline: none;
+  display: none;
   z-index: 10000000000000; }
   @media all and (min-width: 736px) {
-    .cross {
+    .close {
       display: none; } }
 
 .menu {
@@ -259,6 +246,22 @@ header {
   width: 25px;
   height: 25px; }
   .icon-search::after {
+    content: "\00a0"; }
+
+.icon-menu-open {
+  background-image: url(../img/sprite.png);
+  background-position: 0px -49px;
+  width: 24px;
+  height: 24px; }
+  .icon-menu-open::after {
+    content: "\00a0"; }
+
+.icon-menu-close {
+  background-image: url(../img/sprite.png);
+  background-position: -50px -25px;
+  width: 24px;
+  height: 24px; }
+  .icon-menu-close::after {
     content: "\00a0"; }
 
 article {
@@ -390,13 +393,13 @@ article {
 
 .icon-heart {
   background-image: url(../img/sprite.png);
-  background-position: 0px -49px;
+  background-position: -44px -49px;
   width: 20px;
   height: 20px; }
 
 .icon-heart-red {
   background-image: url(../img/sprite.png);
-  background-position: -50px -25px;
+  background-position: -24px -49px;
   width: 20px;
   height: 20px; }
 
@@ -424,7 +427,7 @@ footer {
 
 .icon-up {
   background-image: url(../img/sprite.png);
-  background-position: -20px -49px;
+  background-position: -75px 0px;
   width: 20px;
   height: 20px;
   float: right;
