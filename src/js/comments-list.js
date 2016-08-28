@@ -17,7 +17,7 @@ module.exports = {
                 var html = '<div class="comment" comment-id="'+ comment_id +'">';
                 html += '<div class="comment-text">' + comment_text + '</div>';
                 html += '<div class="comment-personal-data">';
-                    html += '<div class="comment-name">by ' + name + '</div>';
+                    html += '<div class="comment-name">por ' + name + '</div>';
                     html += '<div class="comment-surname">' + surname + '</div>';
                 html += '</div>';
                 // html += '<div>' + email + '</div>';
