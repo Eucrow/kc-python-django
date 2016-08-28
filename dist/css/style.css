@@ -127,7 +127,10 @@ header {
       color: #1E2601;
       text-decoration: none; }
   header .search {
-    display: none; }
+    display: inline-block;
+    float: right;
+    padding: 5px 0 0 0;
+    line-height: 40px; }
     @media all and (min-width: 736px) {
       header .search {
         display: inline-block;
@@ -143,16 +146,19 @@ header {
       border: none;
       padding: 0px 0px;
       text-decoration: none;
-      display: inline-block; }
+      display: inline-block;
+      vertical-align: middle; }
     header .search input {
       height: 30px; }
     header .search form > input.search-input {
       margin: 0 0 5px 0;
-      max-width: 100px; }
+      max-width: 100px;
+      border: 0px; }
 
 .hamburger {
   background: none;
   float: right;
+  width: 45px;
   line-height: 45px;
   padding: 5px 15px 0px 15px;
   color: #FFFFFF;
@@ -169,11 +175,12 @@ header {
 .cross {
   background: none;
   float: right;
+  width: 45px;
+  line-height: 45px;
   padding: 15px 15px 0px 15px;
   color: #FFFFFF;
   border: 0;
   font-size: 3em;
-  line-height: 45px;
   font-weight: lighter;
   cursor: pointer;
   outline: none;
@@ -248,9 +255,11 @@ header {
 
 .icon-search {
   background-image: url(../img/sprite.png);
-  background-position: 0px -49px;
-  width: 20px;
-  height: 20px; }
+  background-position: -50px 0px;
+  width: 25px;
+  height: 25px; }
+  .icon-search::after {
+    content: "\00a0"; }
 
 article {
   margin: 10px auto;
@@ -319,7 +328,7 @@ article {
   .new-comment-form textarea {
     padding: 5px;
     margin: 5px;
-    background-color: #EEEEEE;
+    background-color: #cccccc;
     border-style: none;
     width: 300px;
     font-family: "Prompt", sans-serif; }
@@ -338,7 +347,7 @@ article {
     font-size: 15px;
     color: #4F5902; }
   .new-comment-form button {
-    background-color: #EEEEEE;
+    background-color: #cccccc;
     border-style: solid;
     border-width: 1px;
     padding: 5px; }
@@ -381,13 +390,13 @@ article {
 
 .icon-heart {
   background-image: url(../img/sprite.png);
-  background-position: -50px -20px;
+  background-position: 0px -49px;
   width: 20px;
   height: 20px; }
 
 .icon-heart-red {
   background-image: url(../img/sprite.png);
-  background-position: -50px 0px;
+  background-position: -50px -25px;
   width: 20px;
   height: 20px; }
 

@@ -10,7 +10,7 @@ header{
     }
     @include if-is-desktop{
         max-width: $max-width-desktop;
-    };
+    }
 
     .header-title{
         padding: 20px 0 0 10px;
@@ -25,12 +25,11 @@ header{
         }
     }
 
-    h1 {
-
-    }
-
     .search {
-        display: none;
+        display: inline-block;
+        float: right;
+        padding: 5px 0 0 0;
+        line-height: 40px;
 
         @include if-is-tablet{
             display: inline-block;
@@ -50,6 +49,7 @@ header{
             padding: 0px 0px;
             text-decoration: none;
             display: inline-block;
+            vertical-align: middle;
         }
         input{
             height: 30px;
@@ -58,9 +58,8 @@ header{
         form>input.search-input{
             margin: 0 0 5px 0;
             max-width: 100px;
+            border: 0px;
         }
-
-
     }
 }
 
@@ -68,6 +67,7 @@ header{
 .hamburger{
     background:none;
     float: right;
+    width: 45px;
     line-height:45px;
     padding:5px 15px 0px 15px;
     color:$color-white;
@@ -82,15 +82,15 @@ header{
     }
 }
 
-
 .cross{
     background:none;
     float: right;
+    width: 45px;
+    line-height:45px;
     padding:15px 15px 0px 15px;
     color:$color-white;
     border:0;
     font-size:3em;
-    line-height:45px;
     font-weight:lighter;
     cursor:pointer;
     outline:none;
@@ -128,7 +128,7 @@ header{
         }
     }
 
-    @include  if-is-desktop{
+    @include if-is-desktop{
         max-width: $max-width-desktop;
         right:auto;
     }
@@ -172,4 +172,8 @@ header{
 
 .icon-search {
   @include sprite($icon-search);
+
+  &::after{
+      content: "\00a0";
+  }
 }
