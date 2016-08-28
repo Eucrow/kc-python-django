@@ -119,12 +119,12 @@ header {
       max-width: 1200px; } }
   header .header-title {
     padding: 20px 0 0 10px;
-    color: #1E2601;
+    color: #4F5902;
     font-family: "Aref Ruqaa", serif;
     display: inline-block;
     float: left; }
     header .header-title a {
-      color: #1E2601;
+      color: #4F5902;
       text-decoration: none; }
   header .search {
     display: inline-block;
