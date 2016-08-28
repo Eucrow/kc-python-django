@@ -14,8 +14,15 @@
     }
 }
 
-.number-of-comments{
-    padding-bottom: 10px;
+.article-social-comments{
+    a,
+    a:link,
+    a:visited {
+        text-decoration: none;
+        font-weight: 600;
+        color: $color-blue;
+    }
+
 }
 
 .comment{

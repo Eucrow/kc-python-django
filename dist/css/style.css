@@ -331,7 +331,7 @@ article {
   .new-comment-form textarea {
     padding: 5px;
     margin: 5px;
-    background-color: #cccccc;
+    background-color: #eeeeee;
     border-style: none;
     width: 300px;
     font-family: "Prompt", sans-serif; }
@@ -350,7 +350,7 @@ article {
     font-size: 15px;
     color: #4F5902; }
   .new-comment-form button {
-    background-color: #cccccc;
+    background-color: #eeeeee;
     border-style: solid;
     border-width: 1px;
     padding: 5px; }
@@ -367,8 +367,12 @@ article {
     .comments {
       max-width: 800px; } }
 
-.number-of-comments {
-  padding-bottom: 10px; }
+.article-social-comments a,
+.article-social-comments a:link,
+.article-social-comments a:visited {
+  text-decoration: none;
+  font-weight: 600;
+  color: #7EBFD9; }
 
 .comment {
   font-size: 18px;
