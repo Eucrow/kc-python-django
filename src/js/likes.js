@@ -19,7 +19,6 @@ function heartDislike(idToChange){
     imageToChange.addClass("icon-heart");
 }
 
-
 $( document ).ready(function() {
     for (like in likes){
         // console.log(likes[like]);
