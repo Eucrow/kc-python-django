@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    {{ error }}
+    <form method="post">
+        {% csrf_token %} <!--para la protección csrf que hace django-->
+        <input type="text" id="username" name="username" placeholder="Nombre de Usuario">
+        <input type="password" id="pwd" name="pwd" placeholder="Password">
+        <button sype="submit">Login</button>
+    </form>
+
+</body>
+</html>
