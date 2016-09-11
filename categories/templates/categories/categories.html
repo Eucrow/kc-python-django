@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of categories</title>
+</head>
+<body>
+
+    <h2>List of categories</h2>
+
+    {% if categories_list|length > 0 %}
+        {% for cat in categories_list %}
+            <p>{{ cat.name }}: {{ cat.description }}</p>
+        {% endfor %}
+    {% else %}
+    <p>No hay ningunan categoría</p>
+    {% endif %}
+
+</body>
+</html>
