@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cuartium</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>Bienvenido a Cuartium!</h1>
-
+{% block body %}
     {% if posts_list|length > 0 %}
         <h2>Últimos posts publicados</h2>
         {% for post in posts_list %}
@@ -22,5 +15,4 @@
     {% else %}
     <p>Únete a nosotros y se el primero en subir un postico</p>
     {% endif %}
-</body>
-</html>
+{% endblock %}

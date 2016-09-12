@@ -16,13 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from posts.views import home, post_detail
-from users.views import login
+from users.views import login, logout
 from categories.views import home as categories_home
 
 urlpatterns = [
     url(r'^$', home),
     url(r'^admin/', admin.site.urls),
     url(r'^login$', login),
+    url(r'^logout$', logout),
     url(r'^posts/(?P<pk>[0-9]+)$', post_detail),
     url(r'^categories$', categories_home)
 ]

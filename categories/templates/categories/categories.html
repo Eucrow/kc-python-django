@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>List of categories</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h2>List of categories</h2>
+{% block title %}
+    List of categories
+{% endblock %}
+
+{% block body %}
 
     {% if categories_list|length > 0 %}
         {% for cat in categories_list %}
@@ -16,5 +14,4 @@
     <p>No hay ningunan categoría</p>
     {% endif %}
 
-</body>
-</html>
+{% endblock %}

@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login as django_login
+from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.shortcuts import redirect, render
 
 
@@ -27,3 +27,14 @@ def login(request):
                 error_message = "Cuenta de usuario inactiva"
 
     return render(request, 'users/login.html', {'error': error_message})
+
+def logout(request):
+    """
+    Hace el logout del usuario
+    :param request:
+    :return:
+    """
+    if request.user.is_authenticated():
+        django_logout(request)
+
+    return redirect('/')
