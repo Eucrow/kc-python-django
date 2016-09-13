@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cuartium</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>Bienvenido a Cuartium!</h1>
-    <h2>{{ post.title }}</h2>
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block body %}
     <img src="{{ post.url }}" alt="{{ post.title }}" title ="{{ post.title }}" height="640">
     <p>{{ post.content }}</p>
     <p>{{ post.owner }}</p>
-
-
-</body>
-</html>
+{% endblock %}

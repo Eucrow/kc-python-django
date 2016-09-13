@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'posts',
     'categories',
     'users',
+    'cuartium',
 ]
 
 MIDDLEWARE = [
