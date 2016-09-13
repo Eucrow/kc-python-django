@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ posts_list.owner }}
+{% endblock %}
+{% block body %}
+    <p>dlfkjdsñlkf</p>
+    {{ posts_list.owner }}
+
+    {% if posts_list|length > 0 %}
+        <h2>Últimos posts publicados</h2>
+        {% for post in posts_list %}
+        <a href="/posts/{{ post.pk }}">
+            <h2>{{ post.title }}</h2>
+        </a>
+            <img src="{{ post.url }}" alt="{{ post.title }}" title ="{{ post.title }}" height="640">
+            <p>{{ post.introduction }}</p>
+            <p>{{ post.owner }}</p>
+
+        {% endfor %}
+    {% else %}
+    <p>Únete a nosotros y se el primero en subir un postico</p>
+    {% endif %}
+{% endblock %}
