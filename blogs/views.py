@@ -14,5 +14,6 @@ class Blog(View):
         :return: objeto HttpResponse con los datos de la respuesta
         """
         posts_queryset = Post.objects.filter(owner__username=user_blog).select_related('owner')
-        context = {'posts_list': posts_queryset}
+        context = {'posts_list': posts_queryset,
+                   'posts_owner': user_blog}
         return render(request, 'blogs/blog.html', context)
