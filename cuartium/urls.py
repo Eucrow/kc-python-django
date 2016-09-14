@@ -15,15 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from posts.views import home, post_detail
+
+from posts.forms import PostCreationForm
+from posts.views import Home, PostDetail
 from users.views import login, logout
 from categories.views import home as categories_home
+from blogs.views import Blog
 
 urlpatterns = [
-    url(r'^$', home),
+    url(r'^$', Home.as_view()),
     url(r'^admin/', admin.site.urls),
     url(r'^login$', login),
     url(r'^logout$', logout),
-    url(r'^posts/(?P<pk>[0-9]+)$', post_detail),
-    url(r'^categories$', categories_home)
+    url(r'^posts/(?P<pk>[0-9]+)$', PostDetail.as_view()),
+    #url(r'^newpost$', PostCreationForm.as_view()),
+    url(r'^categories$', categories_home),
+    url(r'^blogs/(?P<user_blog>.+)$', Blog.as_view()),
 ]

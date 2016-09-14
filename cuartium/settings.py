@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'categories',
     'users',
     'cuartium',
+    'blogs',
 ]
 
 MIDDLEWARE = [
