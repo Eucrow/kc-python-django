@@ -1,6 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
 from django.views import View
 
 from posts.forms import PostCreationForm
@@ -42,6 +44,7 @@ class PostDetail(View):
 
 class PostCreationView(View):
 
+    @method_decorator(login_required())
     def get(self, request):
         """
         Method get to create a new post
@@ -53,6 +56,7 @@ class PostCreationView(View):
         context = {'form': post_form, 'message': message}
         return render(request, 'posts/post_creation.html', context)
 
+    @method_decorator(login_required())
     def post(self, request):
         """
            Presenta el formuario para crear un post y en el caso de que la petición sea post la valida
