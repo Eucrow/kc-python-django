@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Crear postico
+{% endblock %}
+
+{% block body %}
+
+    <h1>Crear postico</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crear postico</button>
+    </form>
+    <p>{{ message|safe }}</p> <!-- con el safe le estamos diciendo que message no contiene código malicioso -->
+
+{% endblock %}}

@@ -16,8 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from posts.forms import PostCreationForm
-from posts.views import Home, PostDetail
+from posts.views import Home, PostDetail, PostCreationView
 from users.views import login, logout
 from categories.views import home as categories_home
 from blogs.views import Blog
@@ -27,8 +26,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login$', login),
     url(r'^logout$', logout),
-    url(r'^posts/(?P<pk>[0-9]+)$', PostDetail.as_view()),
-    #url(r'^newpost$', PostCreationForm.as_view()),
+    url(r'^posts/(?P<pk>[0-9]+)$', PostDetail.as_view(), name='post_detail'),
+    url(r'^newpost$', PostCreationView.as_view()),
     url(r'^categories$', categories_home),
     url(r'^blogs/(?P<user_blog>.+)$', Blog.as_view()),
 ]

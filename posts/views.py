@@ -3,8 +3,11 @@ from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from django.views import View
 
+from posts.forms import PostCreationForm
 from posts.models import Post
 
+
+from django.urls import reverse
 
 class Home(View):
     def get(self, request):
@@ -36,6 +39,43 @@ class PostDetail(View):
         post = possible_post[0]
         context = {'post': post}
         return render(request, 'posts/post_detail.html', context)
+
+class PostCreationView(View):
+
+    def get(self, request):
+        """
+        Method get to create a new post
+        :param request: HttpRequest object
+        :return: HttpResponse object with the response
+        """
+        message = None
+        post_form = PostCreationForm()
+        context = {'form': post_form, 'message': message}
+        return render(request, 'posts/post_creation.html', context)
+
+    def post(self, request):
+        """
+           Presenta el formuario para crear un post y en el caso de que la petición sea post la valida
+           y la crea en el caso de que sea válida
+           Args:
+           request:
+           returns:
+           """
+        message = None
+        post_with_user = Post(owner=request.user)
+        post_form = PostCreationForm(request.POST, instance=post_with_user)
+        if post_form.is_valid():
+            new_post = post_form.save()
+            post_form = PostCreationForm()  # vaciamos el formulario
+            message = 'Post creado satisfactoriamente <a href="/posts/{0}">Ver post</a>'.format(
+                reverse('post_detail', args=[new_post.pk])
+            )
+
+        context = {'form': post_form, 'message': message}
+        return render(request, 'posts/post_creation.html', context)
+
+
+
 
 
 
