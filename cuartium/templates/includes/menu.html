@@ -1,6 +1,7 @@
 <a href="/">Home</a>
 {% if user.is_authenticated %} <!-- si el usuario está autenticado ¡¡no hace falta poner el ()!!-->
     <a href="/logout">logout</a>
+    <a href="/newpost">crear post</a>
 {% else %}
     <a href="/login">login</a>
 {% endif %}
