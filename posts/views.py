@@ -22,7 +22,7 @@ class Home(View):
         """
         # recupera todos los posts de la base de datos
         posts = Post.objects.all().order_by('-created_at')
-        context = {'posts_list': posts[:4]}
+        context = {'posts_list': posts}
         return render(request, 'posts/home.html', context)
 
 class PostDetail(View):
