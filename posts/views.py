@@ -67,7 +67,7 @@ class PostCreationView(View):
         if post_form.is_valid():
             new_post = post_form.save()
             post_form = PostCreationForm()  # vaciamos el formulario
-            message = 'Post creado satisfactoriamente <a href="/posts/{0}">Ver post</a>'.format(
+            message = 'Post creado satisfactoriamente <a href="{0}">Ver post</a>'.format(
                 reverse('post_detail', args=[new_post.pk])
             )
 
