@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+    List of blogs
+{% endblock %}
+
+{% block body %}
+
+    {% if blog_list|length > 0 %}
+        {% for bl in blog_list%}
+            <p>Blog de {{ bl }}: </p>
+        {% endfor %}
+    {% else %}
+    <p>No hay ningún blog</p>
+    {% endif %}
+
+{% endblock %}

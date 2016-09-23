@@ -4,6 +4,19 @@ from django.views import View
 from posts.models import Post
 from django.contrib.auth.models import User
 
+class BlogList(View):
+
+    def get(self, request):
+        """
+        Show the list of blogs
+        :param request: object HttpRequest with the request
+        :return: object HttpResponse
+        """
+
+        blogs_queryset = User.objects.all()
+
+        context = {'blog_list': blogs_queryset}
+        return render(request, 'blogs/blogs.html', context)
 
 class Blog(View):
 
@@ -17,3 +30,4 @@ class Blog(View):
         context = {'posts_list': posts_queryset,
                    'posts_owner': user_blog}
         return render(request, 'blogs/blog.html', context)
+
