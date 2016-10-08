@@ -1,17 +1,31 @@
 {% extends "base.html" %}
 
-{% block title %}
-    Crear postico
-{% endblock %}
+{#{% block title %}#}
+{#    Crear postico#}
+{#{% endblock %}#}
 
 {% block body %}
-
-    <h1>Crear postico</h1>
-    <form method="post" novalidate>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Crear postico</button>
-    </form>
-    <p>{{ message|safe }}</p> <!-- con el safe le estamos diciendo que message no contiene código malicioso -->
-
+    <section class="container-section">
+        <div class="container-article_strait">
+            <div class="container-title">Crear nuevo artículo</div>
+                <form class="new-post-form" method="post" novalidate>
+                    {% csrf_token %}
+        {#            {{ form.as_p }}#}
+                    <div>
+                        <input type="text" name="title" placeholder="title" required>
+                    </div>
+                    <div>
+                        <textarea name="introduction" placeholder="introduction" rows="2" required></textarea>
+                    </div>
+                    <div>
+                        <textarea name="content" placeholder="content" rows="8" required></textarea>
+                    </div>
+                    <div>
+                        <input type="text" name="url" placeholder="image url">
+                    </div>
+                    <button type="submit">Crear postico</button>
+                </form>
+                <p>{{ message|safe }}</p> <!-- con el safe le estamos diciendo que message no contiene código malicioso -->
+            </div>
+    </section>
 {% endblock %}}

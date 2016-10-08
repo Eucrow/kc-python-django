@@ -20,8 +20,19 @@
     @include if-is-desktop{
         max-width: $max-width-desktop;
     }
-}
 
-.container-article{
-    max-width:100%;
+
+    .container-title{
+        font-family: $secondary-font-family;
+        padding-bottom: 20px;
+    }
+
+    .container-article{
+        max-width:100%;
+    }
+
+    .container-article_strait{
+        max-width:600px;
+        margin: auto;
+    }
 }

@@ -26,16 +26,21 @@ header, body, footer, ul, h1, p {
       max-width: 1200px; } }
 
 .container-section {
-  padding-top: 50px; }
+  padding-top: 80px; }
   @media all and (min-width: 736px) {
     .container-section {
-      padding-top: 9rem; } }
+      padding-top: 150px; } }
   @media all and (min-width: 737px) {
     .container-section {
       max-width: 1200px; } }
-
-.container-article {
-  max-width: 100%; }
+  .container-section .container-title {
+    font-family: "Aref Ruqaa", serif;
+    padding-bottom: 20px; }
+  .container-section .container-article {
+    max-width: 100%; }
+  .container-section .container-article_strait {
+    max-width: 600px;
+    margin: auto; }
 
 /*
 SCSS variables are information about icon's compiled state, stored under its original file name
@@ -107,6 +112,20 @@ body {
   @media all and (min-width: 736px) {
     body {
       font-size: 23px; } }
+
+ul {
+  list-style-type: none; }
+
+li {
+  padding-bottom: 5px; }
+
+a {
+  text-decoration: none;
+  color: #4F5902; }
+
+a:hover {
+  text-decoration: none;
+  color: #7EBFD9; }
 
 header {
   position: fixed;
@@ -186,7 +205,8 @@ header {
   right: 0px;
   text-align: right;
   border-left: #7EBFD9 2px solid;
-  display: none; }
+  display: none;
+  padding-bottom: 10px; }
   @media all and (min-width: 736px) {
     .menu {
       display: -webkit-box;
@@ -202,7 +222,8 @@ header {
       line-height: 2.5rem;
       width: 100%;
       font-size: 23px;
-      right: auto; }
+      right: auto;
+      padding-bottom: 0px; }
       .menu .themes {
         text-align: left; }
       .menu .identification {
@@ -221,16 +242,13 @@ header {
         margin: 0px; } }
   .menu ul li {
     display: block;
-    padding: 5px 10px 5px 10px;
-    border-bottom: #7EBFD9 1px solid; }
+    padding: 5px 10px 5px 10px; }
     @media all and (min-width: 736px) {
       .menu ul li {
         display: inline;
         padding: 5px 10px 0 10px; } }
   .menu li:hover {
-    color: #4F5902;
-    background: #FFFFFF;
-    padding: 5px 10px 5px 10px; }
+    color: #4F5902; }
   .menu li.menu-inverse:hover {
     background: #7EBFD9; }
   .menu a {
@@ -421,7 +439,7 @@ footer {
     font-family: "Aref Ruqaa", serif;
     font-size: 36px;
     font-weight: bold;
-    color: #1E2601;
+    color: #4F5902;
     display: inline-block;
     padding: 12px 0 15px 5px; }
   footer .copyright {
@@ -437,3 +455,38 @@ footer {
   float: right;
   margin: 12px 10px 0 0; }
 
+.new-post-form {
+  width: 100%;
+  padding: 20px 0px;
+  text-align: center; }
+  .new-post-form input,
+  .new-post-form textarea {
+    padding: 5px;
+    margin: 5px;
+    background-color: #eeeeee;
+    border-style: none;
+    width: 400px;
+    font-family: "Prompt", sans-serif; }
+  .new-post-form ::-webkit-input-placeholder {
+    font-size: 15px;
+    color: #4F5902; }
+  .new-post-form :-moz-placeholder {
+    /* Firefox 18- */
+    font-size: 15px;
+    color: #4F5902; }
+  .new-post-form ::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 15px;
+    color: #4F5902; }
+  .new-post-form :-ms-input-placeholder {
+    font-size: 15px;
+    color: #4F5902; }
+  .new-post-form button {
+    background-color: #eeeeee;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px; }
+    .new-post-form button:hover {
+      background-color: #FFFFFF; }
+
+/*# sourceMappingURL=style.css.map */

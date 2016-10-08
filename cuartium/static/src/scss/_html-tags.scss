@@ -25,3 +25,20 @@ body{
         font-size: $font-size-tablet;
     }
 }
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    padding-bottom: 5px;    
+}
+
+a{
+    text-decoration:none;
+    color:$color-green;
+}
+a:hover{
+    text-decoration:none;
+    color:$color-blue;
+}

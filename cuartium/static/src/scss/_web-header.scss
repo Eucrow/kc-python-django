@@ -101,6 +101,7 @@ header{
     text-align:right;
     border-left:$color-blue 2px solid;
     display: none;
+    padding-bottom: 10px;
 
     @include if-is-tablet{
         display: flex;
@@ -110,6 +111,7 @@ header{
         width: 100%;
         font-size: $font-size-menu-tablet;
         right:auto;
+        padding-bottom: 0px;
         .themes{
             text-align: left;
         }
@@ -135,7 +137,7 @@ header{
     ul li {
         display: block;
         padding:5px 10px 5px 10px;
-        border-bottom:$color-blue 1px solid;
+        //border-bottom:$color-blue 1px solid;
         @include if-is-tablet{
             display: inline;
             padding:5px 10px 0 10px;
@@ -144,8 +146,8 @@ header{
     li:hover{
         // display: block;
         color:$color-green;
-        background:$color-white;
-        padding:5px 10px 5px 10px;
+        //background:$color-white;
+        //padding:5px 10px 5px 10px;
     }
     li.menu-inverse:hover{
         background: $color-blue;
