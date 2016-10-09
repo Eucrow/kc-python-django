@@ -434,7 +434,8 @@ article {
 footer {
   width: 100%;
   background-color: #7EBFD9;
-  vertical-align: bottom; }
+  vertical-align: bottom;
+  margin-top: 20px; }
   footer .footer-title {
     font-family: "Aref Ruqaa", serif;
     font-size: 36px;
