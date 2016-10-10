@@ -20,8 +20,9 @@ class Home(View):
         Returns: objeto HttpResponse con los datos de la respuesta
 
         """
-        # recupera todos los posts de la base de datos
+        # recuera todos los posts de la base de datos
         posts = Post.objects.all().order_by('-created_at')
+        # posts.query.created_at = posts.query.created_at.strftime("%Y-%m-%d %H:%M:%S")
         context = {'posts_list': posts}
         return render(request, 'posts/home.html', context)
 

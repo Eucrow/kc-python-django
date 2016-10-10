@@ -20,6 +20,24 @@ moment.updateLocale('es', {
     relativeTime : {s: "%d segundos"}
 });
 
+//cambiar la forma en que representa el am y el pm
+moment.updateLocale('es', {
+  meridiem: function(hour, minute, isLowerCase) {
+    if (hour < 12) {
+      return 'a.m.';
+    } else {
+      return 'p.m.';
+    }
+  }
+});
+
+moment.updateLocale('es', {
+    monthsShort : [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+    ]
+});
+
 (function datetime(){
     var times =  $(".article-social-fecha").find("time");
     for (var i=0; i<times.length; i++) {
@@ -28,7 +46,8 @@ moment.updateLocale('es', {
     }
 
     function refresh(time){
-        publicationTime = moment($(time).attr("datetime"), "YYYY-MM-DD HH:mm:ss");
+        // publicationTime = moment($(time).attr("datetime"), "YYYY-MM-DD HH:mm:ss");
+        publicationTime = moment($(time).attr("datetime"), "MMM. D, YYYY, h:mm a ");
         nowTime = moment();
         timeToNow = nowTime.diff(publicationTime, 'seconds'); // tiempo que hay
         // entre que se publica el artículo hasta el momento en que se refresca la pantalla
