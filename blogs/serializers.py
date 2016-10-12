@@ -1,7 +1,8 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 
+class BlogSerializer(serializers.ModelSerializer):
 
-class BlogSerializer(serializers.Serializer):
-
-    username = serializers.CharField()
+    class Meta:
+        model = User
 
