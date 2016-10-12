@@ -10,6 +10,7 @@ class Post(models.Model):
     url = models.URLField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+    publicate_date = models.DateTimeField()
 
     def __str__(self):
         return self.title
