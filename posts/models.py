@@ -12,6 +12,7 @@ class Post(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
     publication_date = models.DateField()
     publication_time = models.TimeField()
+    publication_datetime = models.DateTimeField()
 
     def __str__(self):
         return self.title

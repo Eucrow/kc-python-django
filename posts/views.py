@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.db.models import F
+from django.db.models import Q
 from django.http import HttpResponse
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
@@ -26,7 +27,8 @@ class Home(View):
 
         date_now = strftime("%Y-%m-%d", localtime())
         time_now = strftime("%H:%M:%S", localtime())
-        posts = Post.objects.all().filter(publication_date__lte=date_now, publication_time__lte=time_now).order_by('-created_at')
+        posts = Post.objects.all().filter(Q(publication_date=date_now, publication_time__gte=time_now) | Q(publication_date__gt=date_now)).order_by('-created_at')
+
         # posts.query.created_at = posts.query.created_at.strftime("%Y-%m-%d %H:%M:%S")
         context = {'posts_list': posts}
         return render(request, 'posts/home.html', context)
