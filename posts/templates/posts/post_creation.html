@@ -23,7 +23,13 @@
                     <div>
                         <input type="text" name="url" placeholder="image url">
                     </div>
-                    <button type="submit">Crear postico</button>
+                    <div>
+                        Fecha de publicación: <input type="date" name="publication_date" placeholder="Fecha de publicación dd/mm/aaaa">
+                    </div>
+                    <div>
+                        Hora de publicación: <input type="time" name="publication_time" placeholder="Hora de publicación mm:ss">
+                    </div>
+                    <button type="submit">Crear artículo</button>
                 </form>
                 <p>{{ message|safe }}</p> <!-- con el safe le estamos diciendo que message no contiene código malicioso -->
             </div>

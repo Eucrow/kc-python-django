@@ -1,15 +1,17 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import F
 from django.http import HttpResponse
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
+from time import localtime, strftime
 
 from posts.forms import PostCreationForm
 from posts.models import Post
 
-
 from django.urls import reverse
+
 
 class Home(View):
     def get(self, request):
@@ -20,11 +22,15 @@ class Home(View):
         Returns: objeto HttpResponse con los datos de la respuesta
 
         """
-        # recuera todos los posts de la base de datos
-        posts = Post.objects.all().order_by('-created_at')
+        # recupera todos los posts de la base de datos
+
+        date_now = strftime("%Y-%m-%d", localtime())
+        time_now = strftime("%H:%M:%S", localtime())
+        posts = Post.objects.all().filter(publication_date__lte=date_now, publication_time__lte=time_now).order_by('-created_at')
         # posts.query.created_at = posts.query.created_at.strftime("%Y-%m-%d %H:%M:%S")
         context = {'posts_list': posts}
         return render(request, 'posts/home.html', context)
+
 
 class PostDetail(View):
     def get(self, request, pk):
@@ -33,6 +39,7 @@ class PostDetail(View):
         :param request: objeto httpRequest con los datos de la petición
         :return: objeto httpResponse con los datos de la respuesta
         """
+
         possible_post = Post.objects.filter(pk=pk).select_related("owner")
         if len(possible_post) == 0:
             return HttpResponseNotFound("Ese post que buscas no existe")
@@ -43,8 +50,8 @@ class PostDetail(View):
         context = {'post': post}
         return render(request, 'posts/post_detail.html', context)
 
-class PostCreationView(View):
 
+class PostCreationView(View):
     @method_decorator(login_required())
     def get(self, request):
         """
@@ -60,28 +67,21 @@ class PostCreationView(View):
     @method_decorator(login_required())
     def post(self, request):
         """
-           Presenta el formuario para crear un post y en el caso de que la petición sea post la valida
-           y la crea en el caso de que sea válida
-           Args:
-           request:
-           returns:
-           """
+       Presenta el formuario para crear un post y en el caso de que la petición sea post la valida
+       y la crea en el caso de que sea válida
+       Args:
+       request:
+       returns:
+       """
         message = None
         post_with_user = Post(owner=request.user)
         post_form = PostCreationForm(request.POST, instance=post_with_user)
         if post_form.is_valid():
             new_post = post_form.save()
             post_form = PostCreationForm()  # vaciamos el formulario
-            message = 'Post creado satisfactoriamente <a href="{0}">Ver post</a>'.format(
+            message = 'Artículo creado satisfactoriamente <a href="{0}">Ver artículo</a>'.format(
                 reverse('post_detail', args=[new_post.pk])
             )
 
         context = {'form': post_form, 'message': message}
         return render(request, 'posts/post_creation.html', context)
-
-
-
-
-
-
-
