@@ -17,19 +17,16 @@ from django.urls import reverse
 class Home(View):
     def get(self, request):
         """
-        Renderiza el home con un listado de fotos
+        Renderiza el home con un listado de posts
         Args:
             request: objeto httpRequest con los datos de la petición
         Returns: objeto HttpResponse con los datos de la respuesta
 
         """
         # recupera todos los posts de la base de datos
-
         date_now = strftime("%Y-%m-%d", localtime())
         time_now = strftime("%H:%M:%S", localtime())
         posts = Post.objects.all().filter(Q(publication_date=date_now, publication_time__gte=time_now) | Q(publication_date__gt=date_now)).order_by('-created_at')
-
-        # posts.query.created_at = posts.query.created_at.strftime("%Y-%m-%d %H:%M:%S")
         context = {'posts_list': posts}
         return render(request, 'posts/home.html', context)
 
