@@ -9,7 +9,7 @@ class PostCreationForm(ModelForm):
 
     def clean(self):
         """
-        Valida que la descripción no tenga tacos
+        Valida los datos
         Returns: diccionario con los datos limpios y validados
         """
         cleaned_data = super().clean()
