@@ -10,7 +10,12 @@ class PostListAPI(ListCreateAPIView):
     """
 
     queryset = Post.objects.all()
-    serializer_class = PostListSerializer
+
+    # sobreescribimos el método get_serializer_class para que haga lo que nosotros deseamos,
+    # en este caso devuelve PostSerializer si el método es POST o PostListSerializer si no.
+
+    def get_serializer_class(self):
+        return PostSerializer if self.request.method == 'POST' else PostListSerializer
 
 
 class PostDetailAPI(RetrieveUpdateDestroyAPIView):
