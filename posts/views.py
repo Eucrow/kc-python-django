@@ -26,9 +26,31 @@ class Home(View):
         # recupera todos los posts de la base de datos
         date_now = strftime("%Y-%m-%d", localtime())
         time_now = strftime("%H:%M:%S", localtime())
-        posts = Post.objects.all().filter(Q(publication_date=date_now, publication_time__gte=time_now) | Q(publication_date__gt=date_now)).order_by('-created_at')
+        posts = Post.objects.all().filter(
+            Q(publication_date=date_now, publication_time__lte=time_now) | Q(publication_date__lt=date_now)).order_by(
+            '-created_at')
         context = {'posts_list': posts}
         return render(request, 'posts/home.html', context)
+
+
+class PostListQuerySet(object):  # crea la queryset para el listado de artículos (dentro del blog)
+    @staticmethod
+    def get_posts_by_user(user):
+        """
+        Create the queryset to the posts list inside blog (not in home)
+        :param user:
+        :return:
+        """
+        date_now = strftime("%Y-%m-%d", localtime())
+        time_now = strftime("%H:%M:%S", localtime())
+
+        possible_posts = Post.objects.all().select_related("owner")
+        if not user.is_authenticated():  # si no está autenticado, puede ver sólo aquellos ya publicados
+            possible_posts = possible_posts.filter(
+                Q(publication_date=date_now, publication_time__gte=time_now) | Q(publication_date__gt=date_now))
+        else:  # si está autenticado, podrá ver los propios, tanto publicados como no publicados
+            possible_posts = possible_posts.filter(owner=user)
+        return possible_posts  # devuelve la queryset possible_posts
 
 
 class PostDetail(View):
@@ -39,7 +61,7 @@ class PostDetail(View):
         :return: objeto httpResponse con los datos de la respuesta
         """
 
-        possible_post = Post.objects.filter(pk=pk).select_related("owner")
+        possible_post = PostListQuerySet.get_posts_by_user(request.user).filter(pk=pk).select_related("owner")
         if len(possible_post) == 0:
             return HttpResponseNotFound("Ese post que buscas no existe")
         elif len(possible_post) > 1:

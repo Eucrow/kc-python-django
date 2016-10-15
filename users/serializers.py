@@ -35,15 +35,13 @@ class UserSerializer(serializers.Serializer):
     # Esto no lo entiendo muy bien... ¿pero cuándo ejecuta los métodos validate_username
     # y validate_email????
     def validate_username(self, username):
-        # esto no se para que vale y además da un error:
-        # username = super().validate_username(username)
-        if User.objects.filter(username=username).exists():
+        if (self.instance is None or self.instance.username != username)\
+                and User.objects.filter(username=username).exists():
             raise ValidationError("El nombre de usuario {0} ya está siendo utilizado".format(username))
         return username
 
     def validate_email(self, email):
-        # esto no se para que vale y además da un error:
-        # email = super().validate_username(email)
-        if User.objects.filter(email=email).exists():
+        if (self.instance is None or self.instance.email != email) \
+                and User.objects.filter(email=email).exists():
             raise ValidationError("El email {0} ya está siendo utilizado".format(email))
         return email.lower()
