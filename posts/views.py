@@ -60,8 +60,10 @@ class PostDetail(View):
         :param request: objeto httpRequest con los datos de la petición
         :return: objeto httpResponse con los datos de la respuesta
         """
+        date_now = strftime("%Y-%m-%d", localtime())
+        time_now = strftime("%H:%M:%S", localtime())
 
-        possible_post = PostListQuerySet.get_posts_by_user(request.user).filter(pk=pk).select_related("owner")
+        possible_post = Post.objects.all().filter(Q(publication_date=date_now, publication_time__lte=time_now, pk=pk) | Q(publication_date__lt=date_now, pk=pk))
         if len(possible_post) == 0:
             return HttpResponseNotFound("Ese post que buscas no existe")
         elif len(possible_post) > 1:
