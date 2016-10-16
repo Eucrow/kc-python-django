@@ -47,10 +47,13 @@ class PostListQuerySet(object):  # crea la queryset para el listado de artículo
         possible_posts = Post.objects.all().select_related("owner")
         if not user.is_authenticated():  # si no está autenticado, puede ver sólo aquellos ya publicados
             possible_posts = possible_posts.filter(
-                Q(publication_date=date_now, publication_time__gte=time_now) | Q(publication_date__gt=date_now))
-        else:  # si está autenticado, podrá ver los propios, tanto publicados como no publicados
-            possible_posts = possible_posts.filter(owner=user)
-        return possible_posts  # devuelve la queryset possible_posts
+                Q(publication_date=date_now, publication_time__lte=time_now) | Q(publication_date__lt=date_now))
+        elif not user.is_superuser:  # si está autenticado y no es superusuario ve todos los publicados y los suyos no publicados
+            possible_posts = possible_posts.filter(
+                Q(publication_date=date_now, publication_time__lte=time_now) | Q(publication_date__lt=date_now) | Q(
+                    owner=user))
+        # y si está autenticado y es superusuario, entonces devuelverá todos
+        return possible_posts  # possible_post es una queryset
 
 
 class PostDetail(View):
@@ -63,7 +66,9 @@ class PostDetail(View):
         date_now = strftime("%Y-%m-%d", localtime())
         time_now = strftime("%H:%M:%S", localtime())
 
-        possible_post = Post.objects.all().filter(Q(publication_date=date_now, publication_time__lte=time_now, pk=pk) | Q(publication_date__lt=date_now, pk=pk))
+        possible_post = Post.objects.all().filter(
+            Q(publication_date=date_now, publication_time__lte=time_now, pk=pk) | Q(publication_date__lt=date_now,
+                                                                                    pk=pk))
         if len(possible_post) == 0:
             return HttpResponseNotFound("Ese post que buscas no existe")
         elif len(possible_post) > 1:
