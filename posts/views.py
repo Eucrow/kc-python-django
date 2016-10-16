@@ -33,11 +33,11 @@ class Home(View):
         return render(request, 'posts/home.html', context)
 
 
-class PostListQuerySet(object):  # crea la queryset para el listado de artículos (dentro del blog)
+class PostListQuerySet(object):  # crea la queryset con el listado de artículos
     @staticmethod
     def get_posts_by_user(user):
         """
-        Create the queryset to the posts list inside blog (not in home)
+        Create the queryset whith the posts list inside blog
         :param user:
         :return:
         """

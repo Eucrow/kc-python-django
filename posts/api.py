@@ -2,6 +2,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from posts.models import Post
+from posts.permissions import PostPermission
 from posts.serializers import PostSerializer, PostListSerializer
 from posts.views import PostListQuerySet
 
@@ -10,7 +11,8 @@ class PostListAPI(ListCreateAPIView):
     """
     Endpoint de listado y creación de artículos
     """
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (PostPermission,)
 
     def get_queryset(self):
         return PostListQuerySet.get_posts_by_user(user=self.request.user)
@@ -31,12 +33,13 @@ class PostDetailAPI(RetrieveUpdateDestroyAPIView):
     Endpoint de detalle, actualización y borrado de artículos
     """
     serializer_class = PostSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (PostPermission,)
 
     def get_queryset(self):
         return PostListQuerySet.get_posts_by_user(user=self.request.user)
 
-    def perform_create(self, serializer):  # obligamos a que se guarde la foto con el usuario que está autenticado
+    def perform_update(self, serializer):  # obligamos a que se guarde la foto con el usuario que está autenticado
                                            # cuando se está actualizando una foto
         return serializer.save(owner=self.request.user)
 
