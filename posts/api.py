@@ -21,6 +21,10 @@ class PostListAPI(ListCreateAPIView):
     def get_serializer_class(self):
         return PostSerializer if self.request.method == 'POST' else PostListSerializer
 
+    def perform_create(self, serializer):   # obligamos a que se guarde la foto con el usuario que
+                                            # está autenticado cuando se está creando una nueva
+        return serializer.save(owner=self.request.user)
+
 
 class PostDetailAPI(RetrieveUpdateDestroyAPIView):
     """
@@ -31,4 +35,8 @@ class PostDetailAPI(RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return PostListQuerySet.get_posts_by_user(user=self.request.user)
+
+    def perform_create(self, serializer):  # obligamos a que se guarde la foto con el usuario que está autenticado
+                                           # cuando se está actualizando una foto
+        return serializer.save(owner=self.request.user)
 
