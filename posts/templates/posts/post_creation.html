@@ -29,6 +29,14 @@
                     <div>
                         Hora de publicación: <input type="time" name="publication_time" placeholder="Hora de publicación mm:ss">
                     </div>
+                    <div>
+                        Categorías:
+                         <select multiple name="categories">
+                             {% for category in categories_list %}
+                                <option value="{{ category.id }}">{{ category.description }}</option>
+                             {% endfor %}
+                        </select>
+                    </div>
                     <button type="submit">Crear artículo</button>
                 </form>
                 <p>{{ message|safe }}</p> <!-- con el safe le estamos diciendo que message no contiene código malicioso -->

@@ -7,6 +7,8 @@ from posts.serializers import PostSerializer, PostListSerializer
 from posts.views import PostListQuerySet
 
 
+# TODO: convert this in a ViewSet (video Día 6 - Sesión 2 Autorización, Autenticación, Filtrado de da.flv, 1:25
+
 class PostListAPI(ListCreateAPIView):
     """
     Endpoint de listado y creación de artículos

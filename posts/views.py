@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
 from django.db.models import F
 from django.db.models import Q
 from django.http import HttpResponse
@@ -8,6 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from time import localtime, strftime
 
+from categories.models import Category
 from posts.forms import PostCreationForm
 from posts.models import Post
 
@@ -88,8 +90,11 @@ class PostCreationView(View):
         :return: HttpResponse object with the response
         """
         message = None
+
+        categories = Category.objects.all()
+
         post_form = PostCreationForm()
-        context = {'form': post_form, 'message': message}
+        context = {'form': post_form, 'categories_list': categories, 'message': message}
         return render(request, 'posts/post_creation.html', context)
 
     @method_decorator(login_required())
@@ -104,12 +109,13 @@ class PostCreationView(View):
         message = None
         post_with_user = Post(owner=request.user)
         post_form = PostCreationForm(request.POST, instance=post_with_user)
+
+
         if post_form.is_valid():
             new_post = post_form.save()
             post_form = PostCreationForm()  # vaciamos el formulario
             message = 'Artículo creado satisfactoriamente <a href="{0}">Ver artículo</a>'.format(
-                reverse('post_detail', args=[new_post.pk])
-            )
+                reverse('post_detail', args=[new_post.pk]))
 
         context = {'form': post_form, 'message': message}
         return render(request, 'posts/post_creation.html', context)
