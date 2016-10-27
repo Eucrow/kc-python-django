@@ -5,6 +5,7 @@ var $ = require ('jquery');
 
 var moment = require('moment');
 
+
 // function to convert to YYYY-MM-DD format if it is in DD-MM-YYYY format
 function convert_date(date){
     if (moment(date, "DD-MM-YYYY").isValid()){
@@ -38,16 +39,13 @@ $('.new-post-form').on("submit", function(){
     if (correct_date == "ERROR") {
         //no se por qué la siguiente línea no funciona:
         //date_field.setCustomValidity("fecha incorrecta");
-        alert ("fecha incorrecta")
-        input.focus();
+        alert ("fecha incorrecta");
+        dateField.focus();
         return false;
     } else {
-        // no se por qué la siguiente línea no funciona:
-        // $('#publication_date').val() = publication_date;
-        document.getElementById('publication_date').value = correct_date ;
+        alert("fecha correcta");
+
         alert(document.getElementById('publication_date').value);
-        alert("kk")
+        document.getElementById('publication_date').value = correct_date;
     }
-
-
 })
