@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 
@@ -12,6 +13,13 @@ class SignUpForm(forms.Form):
     password2 = forms.CharField(label=False, widget=forms.PasswordInput(attrs={'placeholder': 'Repite la contraseña'}))
 
     def clean(self):
+
+        user_exists = User.objects.filter(username=self.cleaned_data.get("username"))
+
+        if len(user_exists) != 0:
+            raise ValidationError('Ese usuario ya existe')
+
+
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
