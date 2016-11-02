@@ -9,6 +9,8 @@
         <div class="menu">
             <ul class="themes">
                 <a href="/"><li>Home</li></a>
+                {% load categories_extras %}
+                {%  list_categories categories %}
 {#                <a href="#"><li>tomillo</li></a>#}
 {#                <a href="#"><li>milenrama</li></a>#}
 {#                <a href="#"><li>celidonia</li></a>#}
