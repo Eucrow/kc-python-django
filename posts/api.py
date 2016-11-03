@@ -14,36 +14,39 @@ class PostListAPI(ListCreateAPIView):
     #permission_classes = (IsAuthenticatedOrReadOnly,)
     permission_classes = (PostPermission,)
 
+    def order_results(self, request, field):
+        '''
+        Order the queryset by fields
+        :param request: request to order
+        :param field: field to order
+        :return: queryset orderer
+        '''
+
+        to_order = self.request.query_params.get(field, None)
+        if to_order == "asc":
+            by_field = field
+        elif to_order == "des":
+            by_field = "-" + field
+
+        if by_field is not None:
+            queryset = request.order_by(by_field)
+
+        return queryset
+
+
     def get_queryset(self):
 
         posts_by_user = PostListQuerySet.get_posts_by_user(user=self.request.user)
-
+        queryset = posts_by_user
         # filter by search
         search = self.request.query_params.get('search', None)
 
         if search is not None:
             queryset = posts_by_user.filter(title__icontains=search)
 
-        #order by title
-        title = self.request.query_params.get('title', None)
-        if title == "asc":
-            by_title = "title"
-        elif title == "des":
-            by_title = "-title"
+        queryset = self.order_results(queryset, "title")
 
-        if title is not None:
-            queryset = queryset.order_by(by_title)
-        
-        # order by title
-        date =self.request.query_params.get('date', None)
-        by_date = ""
-        if date == "asc":
-            by_date = "publication_date"
-        elif date == "des":
-            by_date = "-publication_date"
-
-        if date is not None:
-            queryset = queryset.order_by(by_date)
+        queryset = self.order_results(queryset, "publication_date")
 
         return queryset
 
