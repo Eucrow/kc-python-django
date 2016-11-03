@@ -110,7 +110,6 @@ class PostCreationView(View):
         post_with_user = Post(owner=request.user)
         post_form = PostCreationForm(request.POST, instance=post_with_user)
 
-
         if post_form.is_valid():
             new_post = post_form.save()
             post_form = PostCreationForm()  # vaciamos el formulario
