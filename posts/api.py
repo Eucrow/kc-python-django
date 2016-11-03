@@ -11,28 +11,36 @@ class PostListAPI(ListCreateAPIView):
     """
     Endpoint de listado y creación de artículos
     """
-    #permission_classes = (IsAuthenticatedOrReadOnly,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
     permission_classes = (PostPermission,)
 
-    def order_results(self, request, field):
+    # TODO: move order_results to another file...
+    def order_results(self, request, *args):
         '''
         Order the queryset by fields
         :param request: request to order
-        :param field: field to order
-        :return: queryset orderer
+        :param args: fields used to order the queryset
+        :return: queryset already ordered
         '''
 
-        to_order = self.request.query_params.get(field, None)
-        if to_order == "asc":
-            by_field = field
-        elif to_order == "des":
-            by_field = "-" + field
+        fields = []
 
-        if by_field is not None:
-            queryset = request.order_by(by_field)
+        for a in args:
+            to_order = self.request.query_params.get(a, None)
+            if to_order == "asc":
+                by_field = a
+                fields.append(by_field)
+            elif to_order == "des":
+                by_field = "-" + a
+                fields.append(by_field)
+            else:
+                by_field = None
+
+        if fields is not None:
+            queryset = request.order_by(*fields)
+            # para entender *fields: http://agiliq.com/blog/2012/06/understanding-args-and-kwargs/
 
         return queryset
-
 
     def get_queryset(self):
 
@@ -44,9 +52,7 @@ class PostListAPI(ListCreateAPIView):
         if search is not None:
             queryset = posts_by_user.filter(title__icontains=search)
 
-        queryset = self.order_results(queryset, "title")
-
-        queryset = self.order_results(queryset, "publication_date")
+        queryset = self.order_results(queryset, "title", "publication_date")
 
         return queryset
 
@@ -56,8 +62,8 @@ class PostListAPI(ListCreateAPIView):
     def get_serializer_class(self):
         return PostSerializer if self.request.method == 'POST' else PostListSerializer
 
-    def perform_create(self, serializer):   # obligamos a que se guarde la foto con el usuario que
-                                            # está autenticado cuando se está creando una nueva
+    def perform_create(self, serializer):  # obligamos a que se guarde la foto con el usuario que
+        # está autenticado cuando se está creando una nueva
         return serializer.save(owner=self.request.user)
 
 
@@ -66,13 +72,12 @@ class PostDetailAPI(RetrieveUpdateDestroyAPIView):
     Endpoint de detalle, actualización y borrado de artículos
     """
     serializer_class = PostSerializer
-    #permission_classes = (IsAuthenticatedOrReadOnly,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
     permission_classes = (PostPermission,)
 
     def get_queryset(self):
         return PostListQuerySet.get_posts_by_user(user=self.request.user)
 
     def perform_update(self, serializer):  # obligamos a que se guarde la foto con el usuario que está autenticado
-                                           # cuando se está actualizando una foto
+        # cuando se está actualizando una foto
         return serializer.save(owner=self.request.user)
-
