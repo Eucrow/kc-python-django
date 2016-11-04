@@ -1,5 +1,6 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
+from posts.models import Post
 from posts.permissions import PostPermission
 from posts.serializers import PostSerializer, PostListSerializer
 from posts.views import PostListQuerySet
@@ -46,11 +47,14 @@ class PostListAPI(ListCreateAPIView):
 
         posts_by_user = PostListQuerySet.get_posts_by_user(user=self.request.user)
         queryset = posts_by_user
+
+        # TODO: send to a function
         # filter by search
         search = self.request.query_params.get('search', None)
 
         if search is not None:
             queryset = posts_by_user.filter(title__icontains=search)
+        #
 
         queryset = self.order_results(queryset, "title", "publication_date")
 
@@ -58,13 +62,12 @@ class PostListAPI(ListCreateAPIView):
 
     # sobreescribimos el método get_serializer_class para que haga lo que nosotros deseamos,
     # en este caso devuelve PostSerializer si el método es POST o PostListSerializer si no.
-
     def get_serializer_class(self):
         return PostSerializer if self.request.method == 'POST' else PostListSerializer
 
-    def perform_create(self, serializer):  # obligamos a que se guarde la foto con el usuario que
-        # está autenticado cuando se está creando una nueva
-        return serializer.save(owner=self.request.user)
+    def perform_create(self, serializer):  # obligamos a que se guarde el post con el usuario que
+        # está autenticado cuando se está creando uno nuevo
+        serializer.save(owner=self.request.user)
 
 
 class PostDetailAPI(RetrieveUpdateDestroyAPIView):
