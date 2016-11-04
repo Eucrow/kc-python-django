@@ -67,7 +67,7 @@ class PostListAPI(ListCreateAPIView):
 
     def perform_create(self, serializer):  # obligamos a que se guarde el post con el usuario que
         # está autenticado cuando se está creando uno nuevo
-        return serializer.save(owner=self.request.user)
+        serializer.save(owner=self.request.user)
 
 
 class PostDetailAPI(RetrieveUpdateDestroyAPIView):

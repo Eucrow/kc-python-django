@@ -6,6 +6,8 @@ from posts.models import Post
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
+        read_only_fields =('owner', ) #le decimos que el campo owner es de solo lectura
+                                        #es decir, que si no lo envío en la petición no pasa nada
 
 
 class PostListSerializer(PostSerializer):
