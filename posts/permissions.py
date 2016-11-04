@@ -15,9 +15,9 @@ class PostPermission(BasePermission):
         from posts.api import \
             PostDetailAPI, PostListAPI  # tenemos que importarlo aquí para evitar un problema de importación cíclica
 
-        if request.method == "POST" and request.user.is_authenticated():  # cualquiera puede crear un usuario
+        if request.method == "POST" and request.user.is_authenticated():  # cualquiera autenticado puede crear un post
             return True
-        if request.user.is_superuser:  # los superusuarios pueden ver el listado de posts
+        if request.user.is_superuser:
             return True
         if isinstance(view, PostDetailAPI) or isinstance(view, PostListAPI): # si la vista que se está usando es UserDetailAPI
             return True
