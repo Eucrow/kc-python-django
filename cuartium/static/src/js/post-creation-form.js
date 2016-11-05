@@ -10,9 +10,11 @@ var moment = require('moment');
 function convert_date(date){
     if (moment(date, "DD-MM-YYYY").isValid()){
         var momentDate = moment(date, "DD-MM-YYYY");
-        correctDate = momentDate.format("YYYY-MM-DD");
+        correct_date = momentDate.format("YYYY-MM-DD");
+        alert (correct_date);
         return (correct_date);
     } else if (moment(date, "YYYY-MM-DD").isValid()){
+        alert (date);
         return (date);
     } else {
         return ("ERROR");
