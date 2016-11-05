@@ -1,10 +1,11 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from django.db.models import F
 from django.db.models import Q
 from django.http import HttpResponse
 from django.http import HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.decorators import method_decorator
 from django.views import View
 from time import localtime, strftime
@@ -112,9 +113,11 @@ class PostCreationView(View):
 
         if post_form.is_valid():
             new_post = post_form.save()
-            post_form = PostCreationForm()  # vaciamos el formulario
+            # post_form = PostCreationForm()  # vaciamos el formulario
             message = 'Artículo creado satisfactoriamente <a href="{0}">Ver artículo</a>'.format(
                 reverse('post_detail', args=[new_post.pk]))
 
         context = {'form': post_form, 'message': message}
-        return render(request, 'posts/post_creation.html', context)
+        # return render(request, 'posts/post_creation.html', context)
+        messages.add_message(request, messages.INFO, "Artículo creado satisfactoriamente")
+        return redirect(reverse('post_detail', args=[new_post.pk]))

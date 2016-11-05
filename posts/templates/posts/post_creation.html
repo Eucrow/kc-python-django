@@ -8,7 +8,7 @@
     <section class="container-section">
         <div class="container-article_strait">
             <div class="container-title">Crear nuevo artículo</div>
-                <form class="new-post-form" method="post" novalidate>
+                <form class="new-post-form" method="post">
                     {% csrf_token %}
         {#            {{ form.as_p }}#}
                     <div>
@@ -24,14 +24,15 @@
                         <input type="text" name="url" placeholder="image url">
                     </div>
                     <div>
-                        Fecha de publicación: <input type="date" name="publication_date" placeholder="Fecha de publicación dd/mm/aaaa">
+{#                        pattern="[0-9]{1,2}[-\/\\][0-9]{1,2}[-\/\\][0-9]{4}"#}
+                        Fecha de publicación: <input type="date" id="publication_date" name="publication_date"  placeholder="Fecha de publicación dd/mm/aaaa" required>
                     </div>
                     <div>
-                        Hora de publicación: <input type="time" name="publication_time" placeholder="Hora de publicación mm:ss">
+                        Hora de publicación: <input type="time" name="publication_time" placeholder="Hora de publicación mm:ss" required>
                     </div>
                     <div>
                         Categorías:
-                         <select multiple name="categories">
+                         <select multiple name="categories" required>
                              {% for category in categories_list %}
                                 <option value="{{ category.id }}">{{ category.description }}</option>
                              {% endfor %}
