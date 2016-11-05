@@ -456,38 +456,56 @@ footer {
   float: right;
   margin: 12px 10px 0 0; }
 
-.new-post-form {
+.new-post-form,
+.signup-form,
+.login-form {
   width: 100%;
   padding: 20px 0px;
   text-align: center; }
   .new-post-form input,
-  .new-post-form textarea {
+  .new-post-form textarea,
+  .signup-form input,
+  .signup-form textarea,
+  .login-form input,
+  .login-form textarea {
     padding: 5px;
     margin: 5px;
     background-color: #eeeeee;
     border-style: none;
     width: 400px;
     font-family: "Prompt", sans-serif; }
-  .new-post-form ::-webkit-input-placeholder {
+  .new-post-form ::-webkit-input-placeholder,
+  .signup-form ::-webkit-input-placeholder,
+  .login-form ::-webkit-input-placeholder {
     font-size: 15px;
     color: #4F5902; }
-  .new-post-form :-moz-placeholder {
+  .new-post-form :-moz-placeholder,
+  .signup-form :-moz-placeholder,
+  .login-form :-moz-placeholder {
     /* Firefox 18- */
     font-size: 15px;
     color: #4F5902; }
-  .new-post-form ::-moz-placeholder {
+  .new-post-form ::-moz-placeholder,
+  .signup-form ::-moz-placeholder,
+  .login-form ::-moz-placeholder {
     /* Firefox 19+ */
     font-size: 15px;
     color: #4F5902; }
-  .new-post-form :-ms-input-placeholder {
+  .new-post-form :-ms-input-placeholder,
+  .signup-form :-ms-input-placeholder,
+  .login-form :-ms-input-placeholder {
     font-size: 15px;
     color: #4F5902; }
-  .new-post-form button {
+  .new-post-form button,
+  .signup-form button,
+  .login-form button {
     background-color: #eeeeee;
     border-style: solid;
     border-width: 1px;
     padding: 5px; }
-    .new-post-form button:hover {
+    .new-post-form button:hover,
+    .signup-form button:hover,
+    .login-form button:hover {
       background-color: #FFFFFF; }
 
 /*# sourceMappingURL=style.css.map */

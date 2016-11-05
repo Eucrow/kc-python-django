@@ -7,10 +7,12 @@
 {% block body %}
     <section class="container-section">
         <div class="container-article_strait">
-            {% if message %}
-                {{ message }}
-            {% endif %}
-        <form class="new-post-form" method="post">
+            <div class="message_layer">
+                {% if message %}
+                    {{ message }}
+                {% endif %}
+            </div>
+        <form class="signup-form" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Signup</button>
