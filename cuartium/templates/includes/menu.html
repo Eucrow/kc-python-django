@@ -8,16 +8,11 @@
         </div>
         <div class="menu">
             <ul class="themes">
-                <a href="/"><li>Home</li></a>
                 {% load categories_extras %}
                 {%  list_categories categories %}
-{#                <a href="#"><li>tomillo</li></a>#}
-{#                <a href="#"><li>milenrama</li></a>#}
-{#                <a href="#"><li>celidonia</li></a>#}
-{#                <a href="#"><li>caléndula</li></a>#}
             </ul>
             <ul class="identification">
-                <a href="/blogs"><li class="menu-inverse">listado de blogs</li></a>
+                <a href="/blogs"><li class="menu-inverse">blogs</li></a>
                 {% if user.is_authenticated %} <!-- si el usuario está autenticado ¡¡no hace falta poner el ()!!-->
                     <a href="/logout"><li class="menu-inverse">logout</li></a>
                     <a href="/newpost"><li class="menu-inverse">crear articulo</li></a>
@@ -26,9 +21,5 @@
                     <a href="/signup"><li class="menu-inverse">signup</li></a>
                 {% endif %}
                 <!-- <li class="menu-inverse identification"><a href="#">Login</a> | <a href="#">Register</a></li> -->
-{#                <a href="#"><li class="menu-inverse">Login</li></a>#}
-{#                <a href="#"><li class="menu-inverse">Regístrate</li></a>#}
             </ul>
-
         </div>
-        
