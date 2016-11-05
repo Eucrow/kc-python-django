@@ -4,6 +4,12 @@
 
     <a name="begin"></a>
     <section class="container-section">
+        {% if messages %}
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        {% endif %}
+
         <article class="container-article" name="begin">
             <img class="article-picture" alt="{{ post.title }}" src="{{ post.url }}">
             <div class="article-title">{{ post.title }}</div>
