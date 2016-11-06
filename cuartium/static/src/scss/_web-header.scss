@@ -28,7 +28,7 @@ header{
     .search {
         display: inline-block;
         float: right;
-        padding: 20px 5px 0 0;
+        padding: 0px 5px 0 0;
         // line-height: 40px;
 
         @include if-is-tablet{
@@ -39,27 +39,27 @@ header{
 
         @include if-is-desktop{
             display: inline-block;
-            padding: 20px 10px 0 0;
+            padding: 0 10px 0 0;
             float: right;
         }
 
-        button {
-            background-color: $color-blue;
-            border: none;
-            padding: 0px 0px;
-            text-decoration: none;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        input{
-            height: 24px;
-        }
-
-        form>input.search-input{
-            margin: 0 0 5px 0;
-            max-width: 100px;
-            border: 0px;
-        }
+        // button {
+        //     background-color: $color-blue;
+        //     border: none;
+        //     padding: 0px 0px;
+        //     text-decoration: none;
+        //     display: inline-block;
+        //     vertical-align: middle;
+        // }
+        // input{
+        //     height: 24px;
+        // }
+        //
+        // form>input.search-input{
+        //     margin: 0 0 5px 0;
+        //     max-width: 100px;
+        //     border: 0px;
+        // }
     }
 }
 

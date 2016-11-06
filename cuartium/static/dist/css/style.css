@@ -127,6 +127,67 @@ a:hover {
   text-decoration: none;
   color: #7EBFD9; }
 
+form {
+  width: 100%;
+  padding: 20px 0px;
+  text-align: center; }
+  form input,
+  form textarea {
+    padding: 5px;
+    margin: 5px;
+    background-color: #eeeeee;
+    border-style: none;
+    width: 400px;
+    font-family: "Prompt", sans-serif; }
+  form ::-webkit-input-placeholder {
+    font-size: 15px;
+    color: #4F5902; }
+  form :-moz-placeholder {
+    /* Firefox 18- */
+    font-size: 15px;
+    color: #4F5902; }
+  form ::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 15px;
+    color: #4F5902; }
+  form :-ms-input-placeholder {
+    font-size: 15px;
+    color: #4F5902; }
+  form .as-input {
+    padding: 5px;
+    margin: 5px auto 10px auto;
+    background-color: #eeeeee;
+    border-style: none;
+    width: 400px;
+    font-family: "Prompt", sans-serif; }
+  form .as-placeholder {
+    font-size: 15px;
+    color: #898C27;
+    vertical-align: top; }
+  form button {
+    background-color: #eeeeee;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px; }
+    form button:hover {
+      background-color: #FFFFFF; }
+
+form.search-form button {
+  background-color: #7EBFD9;
+  border: none;
+  padding: 0px;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle; }
+
+form.search-form input {
+  height: 24px; }
+
+form.search-form input.search-input {
+  margin: 0 0 5px 0;
+  max-width: 100px;
+  border: 0px; }
+
 header {
   position: fixed;
   width: 100%;
@@ -148,7 +209,7 @@ header {
   header .search {
     display: inline-block;
     float: right;
-    padding: 20px 5px 0 0; }
+    padding: 0px 5px 0 0; }
     @media all and (min-width: 736px) {
       header .search {
         display: inline-block;
@@ -157,21 +218,8 @@ header {
     @media all and (min-width: 737px) {
       header .search {
         display: inline-block;
-        padding: 20px 10px 0 0;
+        padding: 0 10px 0 0;
         float: right; } }
-    header .search button {
-      background-color: #7EBFD9;
-      border: none;
-      padding: 0px 0px;
-      text-decoration: none;
-      display: inline-block;
-      vertical-align: middle; }
-    header .search input {
-      height: 24px; }
-    header .search form > input.search-input {
-      margin: 0 0 5px 0;
-      max-width: 100px;
-      border: 0px; }
 
 .open, .close {
   border: none;
@@ -455,57 +503,5 @@ footer {
   height: 20px;
   float: right;
   margin: 12px 10px 0 0; }
-
-.new-post-form,
-.signup-form,
-.login-form {
-  width: 100%;
-  padding: 20px 0px;
-  text-align: center; }
-  .new-post-form input,
-  .new-post-form textarea,
-  .signup-form input,
-  .signup-form textarea,
-  .login-form input,
-  .login-form textarea {
-    padding: 5px;
-    margin: 5px;
-    background-color: #eeeeee;
-    border-style: none;
-    width: 400px;
-    font-family: "Prompt", sans-serif; }
-  .new-post-form ::-webkit-input-placeholder,
-  .signup-form ::-webkit-input-placeholder,
-  .login-form ::-webkit-input-placeholder {
-    font-size: 15px;
-    color: #4F5902; }
-  .new-post-form :-moz-placeholder,
-  .signup-form :-moz-placeholder,
-  .login-form :-moz-placeholder {
-    /* Firefox 18- */
-    font-size: 15px;
-    color: #4F5902; }
-  .new-post-form ::-moz-placeholder,
-  .signup-form ::-moz-placeholder,
-  .login-form ::-moz-placeholder {
-    /* Firefox 19+ */
-    font-size: 15px;
-    color: #4F5902; }
-  .new-post-form :-ms-input-placeholder,
-  .signup-form :-ms-input-placeholder,
-  .login-form :-ms-input-placeholder {
-    font-size: 15px;
-    color: #4F5902; }
-  .new-post-form button,
-  .signup-form button,
-  .login-form button {
-    background-color: #eeeeee;
-    border-style: solid;
-    border-width: 1px;
-    padding: 5px; }
-    .new-post-form button:hover,
-    .signup-form button:hover,
-    .login-form button:hover {
-      background-color: #FFFFFF; }
 
 /*# sourceMappingURL=style.css.map */

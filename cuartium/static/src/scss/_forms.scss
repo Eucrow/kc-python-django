@@ -33,6 +33,20 @@ form {
         color: $color-green;
     }
 
+    .as-input{
+        padding: 5px;
+        margin: 5px auto 10px auto;
+        background-color: #eeeeee;
+        border-style: none;
+        width: 400px;
+        font-family: "Prompt", sans-serif;
+    }
+    .as-placeholder {
+        font-size: $font-size-smallest;
+        color: $color-light-green;
+        vertical-align: top;
+    }
+
     button{
         background-color: $color-light-grey;
         border-style: solid;
@@ -45,4 +59,25 @@ form {
 
     }
 
+}
+
+form.search-form{
+    button {
+        background-color: $color-blue;
+        border: none;
+        padding: 0px;
+        text-decoration: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    input{
+        height: 24px;
+    }
+
+    input.search-input{
+        margin: 0 0 5px 0;
+        max-width: 100px;
+        border: 0px;
+    }
 }
