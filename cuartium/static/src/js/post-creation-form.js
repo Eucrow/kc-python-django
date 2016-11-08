@@ -11,11 +11,10 @@ function convert_date(date){
     if (moment(date, "DD-MM-YYYY").isValid()){
         var momentDate = moment(date, "DD-MM-YYYY");
         correct_date = momentDate.format("YYYY-MM-DD");
-        alert (correct_date);
         return (correct_date);
     } else if (moment(date, "YYYY-MM-DD").isValid()){
-        alert (date);
-        return (date);
+        //alert (date);
+        return (moment(date, "YYYY-MM-DD"));
     } else {
         return ("ERROR");
     }
@@ -37,17 +36,15 @@ $('.new-post-form').on("submit", function(){
     // validate date
     var dateField = $('#publication_date');
     correct_date = convert_date(dateField.val());
-    alert(correct_date);
     if (correct_date == "ERROR") {
         //no se por qué la siguiente línea no funciona:
         //date_field.setCustomValidity("fecha incorrecta");
         alert ("fecha incorrecta");
         dateField.focus();
         return false;
-    } else {
-        alert("fecha correcta");
 
-        alert(document.getElementById('publication_date').value);
+    } else {
+        //alert("fecha correcta:" + correct_date);
         document.getElementById('publication_date').value = correct_date;
     }
 })
